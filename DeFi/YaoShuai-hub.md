@@ -19,10 +19,15 @@ timezone: UTC+8
 
 <!-- Content_START -->
 
-### 2025.07.11
+### 2025.11.21
+#### Part 1
+- [x] 1.创建MetaMask钱包
+- [x] 2.创建并部署合约，<img width="2880" height="1584" alt="image" src="https://github.com/user-attachments/assets/0e9419e0-cf74-4002-beed-f130d796a4c4" />
+- [x] 3.运行hello，查看结果
+  - [x] Transaction: <img width="2424" height="1144" alt="image" src="https://github.com/user-attachments/assets/31624060-f516-4e37-b3ec-365c35089490" />
+  - [x] Events: <img width="2352" height="1236" alt="image" src="https://github.com/user-attachments/assets/b44a3c9f-19fb-423c-a077-4de55b0d1199" />
+#### Part 2
+- [x] 成功记录: <img width="2880" height="1584" alt="image" src="https://github.com/user-attachments/assets/78014bb4-c853-4dc7-bf98-0b253d32bfe6" />
 
-笔记内容
-
-### 2025.07.12
 
 <!-- Content_END -->
