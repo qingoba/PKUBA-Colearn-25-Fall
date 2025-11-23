@@ -1,0 +1,59 @@
+---
+timezone: UTC+8
+
+---
+
+> 请在上边的 timezone 添加你的当地时区(UTC)，这会有助于你的打卡状态的自动化更新，如果没有添加，默认为北京时间 UTC+8 时区
+
+
+# 你的名字
+
+1. 自我介绍 我是任纪武 2023级前沿交叉学科研究院直博生
+2. 你认为你会完成这次共学小组吗？可以
+3. 你感兴趣的小组 Onchain-data
+4. 你的联系方式（Wechat or Telegram）Wechat: 15265978697
+
+## Notes
+
+### 2025.11.23
+
+#### Part I - 动手部署一个智能合约
+
+1.在Remix中创建合约并编译部署
+
+```jsx
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract HelloWeb3 {
+    event Greeting(address indexed sender, uint256 timestamp);
+    
+    constructor() {}
+
+    function hello() external {
+        emit Greeting(msg.sender, block.timestamp);
+    }
+}
+```
+
+![image-20251123144153701](/Users/renjiwu/Library/Application Support/typora-user-images/image-20251123144153701.png)
+
+2.运行hello方法 并在区块链浏览器查看结果
+
+![image-20251123144206721](/Users/renjiwu/Library/Application Support/typora-user-images/image-20251123144206721.png)
+
+Transactions结果
+
+![image-20251123144221945](/Users/renjiwu/Library/Application Support/typora-user-images/image-20251123144221945.png)
+
+Events结果
+
+![image-20251123144233251](/Users/renjiwu/Library/Application Support/typora-user-images/image-20251123144233251.png)
+
+#### Part II - 智能合约编写
+
+成功获取FLAG: PKU_Blockchain_Colearn_Week1_Success
+
+交易哈希: 0x7661fbb60c03948fb20c9bc7f13de6e45dc3933ca0b2963b01ec73d5446b99fb
+
+![image-20251123144316259](/Users/renjiwu/Library/Application Support/typora-user-images/image-20251123144316259.png)
