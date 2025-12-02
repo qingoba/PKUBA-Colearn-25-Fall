@@ -159,7 +159,8 @@ go version
 在你准备存放本周代码的目录下，新建一个文件夹并初始化 Go 模块：
 
 ```bash
-mkdir week3-geth && cd week3-geth
+mkdir week3-geth
+cd week3-geth
 go mod init week3-geth
 ```
 
@@ -201,6 +202,17 @@ go get github.com/ethereum/go-ethereum
 import "github.com/ethereum/go-ethereum/ethclient"
 ```
 
+> 中国大陆访问 go-ethereum 依赖失败，可设置 Go 代理：
+> - **Windows (PowerShell)：**
+>   ```powershell
+>   $env:GOPROXY="https://goproxy.cn,direct" # 临时代理, 在同一终端会话生效
+>   ```
+> - **Linux/macOS (bash/zsh)：**
+>   ```bash
+>   export GOPROXY=https://goproxy.cn,direct # 临时代理, 在同一终端会话生效
+>   ```
+> 设置后重新执行 `go get` 命令即可。
+
 本课用到的 Go 知识基本只有：
 
 - `package main` / `func main()` 入口函数；
@@ -212,17 +224,16 @@ import "github.com/ethereum/go-ethereum/ethclient"
 
 # Part III - 使用 go-ethereum 读取链上数据
 
-*验证一下程序及输出*
 
 引入客户端：
 
-```
+```go
 import "github.com/ethereum/go-ethereum/ethclient"
 ```
 
 连接到 Sepolia RPC
 
-```
+```go
 client, err := ethclient.Dial("https://ethereum-sepolia-rpc.publicnode.com")
 if err != nil {
     panic(err)
@@ -231,14 +242,14 @@ if err != nil {
 
 获取当前区块高度
 
-```
+```go
 header, err := client.HeaderByNumber(context.Background(), nil)
 fmt.Println("current block:", header.Number.String())
 ```
 
 查询区块
 
-```
+```go
 blockNumber := big.NewInt(123456)
 block, _ := client.BlockByNumber(context.Background(), blockNumber)
 
@@ -249,7 +260,7 @@ fmt.Println("tx count:", len(block.Transactions()))
 
 查询交易与回执
 
-```
+```go
 txHash := common.HexToHash("0x你的交易哈希")
 tx, _, _ := client.TransactionByHash(context.Background(), txHash)
 
@@ -259,11 +270,87 @@ fmt.Println("value:", tx.Value().String())
 
 Receipt：
 
-```
+```go
 receipt, _ := client.TransactionReceipt(context.Background(), txHash)
 
 fmt.Println("status:", receipt.Status)
 fmt.Println("logs:", receipt.Logs)
+```
+
+合并到一起的一个样例: 
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+    "math/big" 
+    // go 标准库
+
+    "github.com/ethereum/go-ethereum/common"
+    "github.com/ethereum/go-ethereum/ethclient" // 如果提示缺少依赖, 按照给出的报错信息安装即可
+)
+
+func main() {
+    ctx := context.Background()
+
+    client, err := ethclient.Dial("https://ethereum-sepolia-rpc.publicnode.com")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer client.Close()
+
+    header, err := client.HeaderByNumber(ctx, nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Current block: %s\n", header.Number.String())
+
+    targetBlock := big.NewInt(123456)
+    block, err := client.BlockByNumber(ctx, targetBlock)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Block #%s hash: %s\n", block.Number().String(), block.Hash().Hex())
+    fmt.Printf("Parent hash: %s\n", block.ParentHash().Hex())
+    fmt.Printf("Tx count: %d\n", len(block.Transactions()))
+//==========================
+txHash:=common.HexToHash("0x903bd6b44ce5cfa9269d456d2e7a10e3d8a485281c1c46631ec8f79e48f7 accb") //测试用交易hash, 你可以替换成任何你想查询的交易hash
+//=========================
+    tx, isPending, err := client.TransactionByHash(ctx, txHash)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Tx pending: %t\n", isPending)
+    if to := tx.To(); to != nil {
+        fmt.Printf("To: %s\n", to.Hex())
+    } else {
+        fmt.Println("To: contract creation")
+    }
+    fmt.Printf("Value (wei): %s\n", tx.Value().String())
+
+    receipt, err := client.TransactionReceipt(ctx, txHash)
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Printf("Receipt status: %d\n", receipt.Status)
+    fmt.Printf("Logs: %d entries\n", len(receipt.Logs))
+}
+```
+
+```bash
+Current block: 9750075
+Block #123456 hash: 0x2056507046b07a5d7ed4f124a7febce2aec7295b464746523787b8c2acc627dc
+Parent hash: 0x93bff867b68a2822ee7b6e0a4166cfdf5fc4782d60458fae1185de9b2ecdba16
+Tx count: 0
+Tx pending: false
+To: 0x9Bd28675069f200961B50F13C476aDa5e7067C31
+Value (wei): 0
+Receipt status: 1
+Logs: 2 entries
+# 如果一切正常, 你将会得到类似于上面的输出结果
+# 你可以替换为你自己想查询的任何交易id
 ```
 
 # Follow Up - 理解 block, transaction, receipt 的结构
