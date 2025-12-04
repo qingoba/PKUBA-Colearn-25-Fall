@@ -15,10 +15,17 @@ timezone: UTC+8
 
 <!-- Content_START -->
 
-### 2025.07.11
+### 2025.11.29
 
-笔记内容
+#### Part 1
+- 部署合约 <img width="2549" height="1235" alt="Pasted image 20251130183210" src="https://github.com/user-attachments/assets/c38b3778-ac80-4021-bdb5-8b4811a78c54" />
+- 查看结果
+<img width="2151" height="1130" alt="Pasted image 20251130183323" src="https://github.com/user-attachments/assets/104548de-5c75-425f-88bf-44625df57f20" />
+<img width="2084" height="1034" alt="Pasted image 20251130183450" src="https://github.com/user-attachments/assets/d8fc1455-8379-4612-875b-2b5a895050f1" />
 
-### 2025.07.12
+### 2025.11.30
+#### Part 2
+<img width="2486" height="1222" alt="Pasted image 20251130185024" src="https://github.com/user-attachments/assets/6eb3cc3d-b6f9-4579-bb09-9f9b075ced06" />
+
 
 <!-- Content_END -->

@@ -21,7 +21,7 @@ timezone: UTC+8
 
 ### 2025.11.21
 
-#### PART1 智能合约的前置问题
+#### 智能合约的前置问题
 
 ##### Q1: 什么是智能合约？
 
@@ -585,7 +585,9 @@ A transaction is a cryptographically signed instruction that changes the blockch
 
 ---
 
-#### PART2 真正的人生中第一个合约编写
+### 2025.11.27
+
+#### 真正的人生中第一个合约编写
 
 ##### 任务目标
 

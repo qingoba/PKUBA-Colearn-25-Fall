@@ -72,6 +72,18 @@ Events 的作用： Events是智能合约与链下应用通信的主要方式。
 零 ETH 交易： 虽然 Value 为 0 ETH，但由于 hello() 函数触发 Event 改变了状态，它仍然需要支付 Gas Fee。   
 
 
-### 2025.07.12
+### 2025.11.24
+transaction hash：0x1f5f22a742984ed13d08219242dc34e1eae894c3d0fc2baf8eeb1260f0438d5c
+<img width="935" height="550" alt="image" src="https://github.com/user-attachments/assets/a53f3f95-3538-402a-b7da-2d02f5595bb8" />
+
+<img width="1130" height="319" alt="image" src="https://github.com/user-attachments/assets/9a73b7f7-b07d-4e29-b1d2-58482d944911" />
+
+
+<img width="496" height="556" alt="image" src="https://github.com/user-attachments/assets/074e9a64-8324-480a-906a-8d0d82b95b91" />
+
+<img width="1037" height="310" alt="image" src="https://github.com/user-attachments/assets/d998bbbf-7a4e-49a8-bdf5-863c6bc132e9" />
+
+
+
 
 <!-- Content_END -->

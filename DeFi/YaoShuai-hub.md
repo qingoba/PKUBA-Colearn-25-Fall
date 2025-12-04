@@ -26,6 +26,7 @@ timezone: UTC+8
 - [x] 3.运行hello，查看结果
   - [x] Transaction: <img width="2424" height="1144" alt="image" src="https://github.com/user-attachments/assets/31624060-f516-4e37-b3ec-365c35089490" />
   - [x] Events: <img width="2352" height="1236" alt="image" src="https://github.com/user-attachments/assets/b44a3c9f-19fb-423c-a077-4de55b0d1199" />
+### 2025.11.30
 #### Part 2
 - [x] 成功记录: <img width="2880" height="1584" alt="image" src="https://github.com/user-attachments/assets/78014bb4-c853-4dc7-bf98-0b253d32bfe6" />
 

@@ -54,7 +54,7 @@ Events结果
 
 <img width="1392" height="843" alt="image" src="https://github.com/user-attachments/assets/2962beff-4de0-440f-a766-d200fc60a4ae" />
 
-
+### 2025.11.27
 #### Part II - 智能合约编写
 
 成功获取FLAG: PKU_Blockchain_Colearn_Week1_Success
@@ -62,7 +62,6 @@ Events结果
 交易哈希: 0x7661fbb60c03948fb20c9bc7f13de6e45dc3933ca0b2963b01ec73d5446b99fb
 
 <img width="1921" height="1268" alt="image" src="https://github.com/user-attachments/assets/4439525e-4d45-4798-a97f-5edf3dc2d9b9" />
-
 
 
 <!-- Content_END -->
