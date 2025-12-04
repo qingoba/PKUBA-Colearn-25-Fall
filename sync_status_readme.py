@@ -379,18 +379,26 @@ def update_readme(content):
             '| ------------- | ' + ' | '.join(['----' for _ in week_ranges]) + ' |\n'
         ]
 
-        existing_users = set()
+        # 获取当前所有有效用户
+        all_valid_users = set(get_all_user_files())
+        existing_users_in_table = set()
+        
         table_rows = content[start_index + len(TABLE_START_MARKER):end_index].strip().split('\n')[2:]
 
         for row in table_rows:
             user_name = extract_name_from_row(row)
             if user_name:
-                existing_users.add(user_name)
-                new_table.append(generate_user_row(user_name))
+                # 关键修改：只保留在有效用户列表中的用户
+                if user_name in all_valid_users:
+                    existing_users_in_table.add(user_name)
+                    new_table.append(generate_user_row(user_name))
+                else:
+                    logging.info(f"Removing invalid/excluded user from table: {user_name}")
             else:
                 logging.warning(f"Skipping invalid row: {row}")
 
-        new_users = set(get_all_user_files()) - existing_users
+        # 添加表格中没有的新用户
+        new_users = all_valid_users - existing_users_in_table
         for user in new_users:
             if user.strip():
                 new_table.append(generate_user_row(user))
