@@ -110,7 +110,7 @@
 | [Security/0xTyche](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Security/0xTyche.md) | ✅ | ⭕️ |   | | | | | |
 | [DeFi/YaoShuai-hub](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub.md) | ✅ | ✅ |   | | | | | |
 | [Onchain-data/odsbaron](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/odsbaron.md) | ✅ | ⭕️ |   | | | | | |
-| [Onchain-data/RenJW418](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418.md) | ✅ | ✅ |   | | | | | |
+| [Onchain-data/RenJW418](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418.md) | ✅ | ✅ | ✅ | | | | | |
 | [Onchain-data/Ariaboopboop](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Ariaboopboop.md) | ✅ | ⭕️ |   | | | | | |
 | [Onchain-data/munger999](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/munger999.md) | ⭕️ | ⭕️ |   | | | | | |
 | [Onchain-data/ZhaZhaFon](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ZhaZhaFon.md) | ✅ | ✅ | ✅ | | | | | |
@@ -125,6 +125,7 @@
 | [DeFi/pandmonkey](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/pandmonkey.md) | ⭕️ | ⭕️ | ✅ | | | | | |
 | [DeFi/Yawnaa](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/Yawnaa.md) | ⭕️ | ⭕️ | ✅ | | | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
