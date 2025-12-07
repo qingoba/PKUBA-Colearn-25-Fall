@@ -37,4 +37,8 @@ Feng_999
 跟随文档，完成了Week1 Part II作业，学会使用Solidity编写智能合约并用REMIX IDE进行部署。
 通过hint发现需要对“PKUBlockchain”加密作为query输入，完成后通过getSolvers可以检验发现之前部署的合约被加入到地址名单内了。
 
+### 2025.12.07周日
+昨天用Binance往资金池加了50U。
+今天跟随文档完成了Week3作业，入门Golang并学习Ethereum数据结构。
+
 <!-- Content_END -->
