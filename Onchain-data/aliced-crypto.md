@@ -7,10 +7,12 @@ timezone: UTC+8
 
 # Alice
 
-1. 自我介绍 我是alice，软微学院
+1. 自我介绍 我是alice
 2. 你认为你会完成这次共学小组吗？try my best
 3. 你感兴趣的小组 onchain-data
 4. 你的联系方式（Wechat or Telegram）wechat：TurboxxCC
+5. 质押的交易哈希：0x82d1f6eb8dc2e42172548137b4b340fad3c74393a685dfd1fa55ac3353f26f4d
+0xe2c6e8791cf23044963d8bddc2d9f9d1f612412b7a3da8fc20436fa988f355e7
 
 ## Notes
 
