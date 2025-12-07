@@ -19,7 +19,7 @@ Hi, 我是Vito，处于链上数据的获取和处理很感兴趣
 ### 2025.11.23
 
 笔记内容
-Week1 智能合约挑战学习笔记（简短版）
+Week1 智能合约挑战学习笔记
 
 1. 理解了 EOA 与合约账户区别：
    - EOA（钱包）有私钥，tx.origin = msg.sender；
@@ -48,6 +48,14 @@ Week1 智能合约挑战学习笔记（简短版）
 本次任务主要学习的是“智能合约之间的调用机制”，特别是 msg.sender / tx.origin 区别，以及如何通过自定义合约绕过合约限制并与靶子合约交互。
 
 
-### 2025.11.30
+### 2025.12.07
+Week3_使用 Geth 读取链上数据
+1. Block 的 number、hash、parentHash、timestamp 等字段反映了一条链如何通过哈希指针保持不可篡改，gasUsed 与 gasLimit 则体现出链对单笔交易与整个区块计算量的资源调控。
+
+2. Transaction 则包含执行动作的所有“意图”，如 nonce、from/to、value、gas 与 EIP-1559 费用模型，input 和 ABI 则决定合约调用的具体方式。
+
+3. Receipt 代表真实执行结果，status、logs 与 contractAddress 说明一笔交易是否成功、触发了哪些事件、是否生成了新合约。
+
+4. 整体理解了以太坊执行模型：交易输入 → EVM 执行 → gas 计费 → 事件日志 → receipt 落链。
 
 <!-- Content_END -->
