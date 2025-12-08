@@ -18,11 +18,40 @@ timezone: UTC+8
 <!-- Content_START -->
 
 ### 2025.12.07
+#### Github 上复制文件
+方法一：使用 GitHub Web Editor（最推荐，快捷键 .）
+这是最接近本地操作体验的方法。GitHub 内置了一个基于 VS Code 的网页编辑器。
+
+1. 打开你的 GitHub 仓库主页。
+2. 在键盘上直接按下 英文句号键 .（或者将浏览器地址栏中的 github.com 改为 github.dev）。
+3. 这会打开一个网页版的 VS Code 编辑器。
+4. 在左侧文件树中，右键点击你要复制的文件 -> Copy。
+5. 右键点击目标文件夹 -> Paste。
+6. 点击左侧的“源代码管理”图标（Git 图标），输入 Commit 信息并提交更改。
+
+方法二：手动“复制内容 + 新建文件”（适合单个小文件）
+如果你不想进入编辑器模式，可以使用传统的笨办法：
+
+1. 打开你想复制的文件。
+2. 点击右上角的 Copy raw contents 图标（两个重叠的小方块）或者点击 Raw 按钮然后全选复制。
+3. 回到仓库首页或目标文件夹。
+4. 点击 Add file -> Create new file。
+5. 在文件名处输入路径（例如 new_folder/filename.py）并粘贴内容。
+6. 提交更改（Commit changes）。
+
 
 #### 动手部署一个智能合约
 PKUBlockchain 25 Fall Get Ready Quest: https://github.com/aliceyzhsu/crypto-techguy/blob/main/quests/get-ready.md
 
-代码
+🎯 目标：在 Ethereum Sepolia 测试网上部署一个属于你自己的智能合约，并与该合约交互。
+
+📌 准备工作：
+1️⃣ 安装并配置好 MetaMask 钱包
+
+2️⃣ 领取 Sepolia 测试网 ETH 测试币：https://cloud.google.com/application/web3/faucet/ethereum/sepolia
+
+3️⃣ 准备好你要部署的合约代码, 可以直接使用下面的例子:
+
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
@@ -39,6 +68,23 @@ contract HelloWeb3 {
 ```
 这个代码定义了一个 event，可以在区块链浏览器看到。
 
+
+🔄 操作流程详解：
+
+1. 打开 Remix IDE：[https://remix.ethereum.org](https://remix.ethereum.org/)
+2. 新建 HelloWeb3.sol 文件，粘贴上述代码
+3. 进入 Solidity Compiler 标签页，点击“Compile”
+4. 进入 Deploy & Run Transactions 标签页
+5. 环境选择 “Injected Provider - MetaMask” （Injected Provider 表示 Metamask 是哪条链，就是哪个，可以直接选用 Sepolia Testnet - MetaMask）
+6. 确认 MetaMask 已切换至 Sepolia 网络
+7. 点击 Deploy，在 MetaMask 中确认交易
+8. 等待部署成功，在 Remix 控制台复制合约地址和交易哈希
+9. 在已经部署的合约中调用 hello 方法
+10. 打开[区块链浏览器](https://sepolia.etherscan.io/)，搜索部署的合约地址，查看 Transactions 和 Events 结果
+
+
+
+
 编译完成：
 
 <img width="1629" height="1289" alt="image" src="https://github.com/user-attachments/assets/39b984f7-8165-41cb-9da9-beec42c12f2a" />
@@ -51,7 +97,7 @@ contract HelloWeb3 {
 
 成功部署之后，就可以调用 hello 函数，
 
-打开区块链浏览器：https://sepolia.etherscan.io/
+找到合约地址（Contract address），打开区块链浏览器：https://sepolia.etherscan.io/
 
 部署成功。
 <img width="1456" height="877" alt="image" src="https://github.com/user-attachments/assets/d9d361ec-11f1-46e7-b5e6-f8937a5cc975" />
