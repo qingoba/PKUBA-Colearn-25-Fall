@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/url"
 	"os"
 	"os/signal"
 	"time"
@@ -16,38 +17,65 @@ import (
 )
 
 // ------------------------------------------------
-// ⚠️ 关键配置：本地 WebSocket 节点地址
+// ⚠️ 关键配置：WebSocket 节点地址和代理
 // ------------------------------------------------
 
 const (
-	// 本地 Geth 节点的 WebSocket 地址
-	// 默认端口：8546 (WebSocket), 8545 (HTTP RPC)
-	// 确保你的本地 Geth 节点已启动并启用了 WebSocket
-	NodeWSS = "ws://127.0.0.1:8546"
+	// ⚠️ 请替换为你的 WebSocket 节点地址
+	// Infura: wss://mainnet.infura.io/ws/v3/YOUR_API_KEY
+	// Alchemy: wss://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
+	// 获取方式: 访问 https://infura.io/ 或 https://www.alchemy.com/ 注册并获取 API Key
+	InfuraWSS = "wss://mainnet.infura.io/ws/v3/YOUR_API_KEY"
 
-	// 连接超时时间
-	CONNECTION_TIMEOUT = 30 * time.Second
+	// ⚠️ 请根据你的代理软件修改端口号
+	// 常见代理端口：
+	//   - Clash: 7890 (HTTP), 7891 (SOCKS5)
+	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
+	//   - Shadowsocks: 1080 (SOCKS5)
+	// 如果不需要代理，可以设为空字符串 ""
+	PROXY_PORT = "YOUR_PROXY_PORT"
+
+	// 设置较大的超时时间，应对代理连接延迟
+	CONNECTION_TIMEOUT = 45 * time.Second
 )
 
 func main() {
-	log.Println("开始连接到本地 WebSocket 节点")
+	log.Println("开始配置代理并连接到 WebSocket 节点")
 
-	// 1. 建立底层的 RPC 连接 (WebSocket)
-	// 注意：必须用 rpc.DialContext 建立基础连接，以便复用
+	// 1. 配置代理（WebSocket 连接需要通过代理，如果需要）
+	// 注意：WebSocket 连接通过设置环境变量来让 rpc.DialContext 使用代理
+	// 确保你的代理工具支持 WebSocket 连接（如 Clash、V2Ray）
+	if PROXY_PORT != "" && PROXY_PORT != "YOUR_PROXY_PORT" {
+		proxyUrlString := fmt.Sprintf("http://127.0.0.1:%s", PROXY_PORT)
+		_, err := url.Parse(proxyUrlString)
+		if err != nil {
+			log.Fatalf("解析代理 URL 失败: %v", err)
+		}
+
+		// 设置环境变量，让 rpc.DialContext 自动使用代理
+		os.Setenv("HTTP_PROXY", proxyUrlString)
+		os.Setenv("HTTPS_PROXY", proxyUrlString)
+		log.Printf("✅ 代理配置: %s", proxyUrlString)
+	} else {
+		log.Println("✅ 未配置代理（直接连接）")
+	}
+
+	// 2. 建立底层的 RPC 连接 (WebSocket)
+	// 注意：rpc.DialContext 会自动使用环境变量中的代理设置
 	ctx, cancel := context.WithTimeout(context.Background(), CONNECTION_TIMEOUT)
 	defer cancel()
 
-	rpcClient, err := rpc.DialContext(ctx, NodeWSS)
+	rpcClient, err := rpc.DialContext(ctx, InfuraWSS)
 	if err != nil {
-		log.Fatalf("❌ 无法连接到本地 WebSocket 节点: %v\n"+
+		log.Fatalf("❌ 无法连接到 WebSocket 节点: %v\n"+
 			"   可能的原因：\n"+
-			"   1. 本地 Geth 节点未启动\n"+
-			"   2. WebSocket 未启用（需要在启动 Geth 时添加 --ws 参数）\n"+
-			"   3. 端口配置错误（默认 WebSocket 端口为 8546）\n"+
-			"   提示：启动 Geth 节点示例：geth --ws --ws.addr 0.0.0.0 --ws.port 8546", err)
+			"   1. 代理未启动或端口配置错误（当前代理端口: %s）\n"+
+			"   2. WebSocket URL 无效或 API Key 错误\n"+
+			"   3. 网络连接问题\n"+
+			"   提示：确保代理工具已启动并支持 WebSocket 连接", err, PROXY_PORT)
 	}
 	defer rpcClient.Close()
-	fmt.Println("✅ 成功建立 RPC WebSocket 连接")
+	fmt.Println("✅ 成功建立 RPC WebSocket 连接 (已配置代理)")
 
 	// 3. 初始化两种不同的 Client
 	// EthClient: 用于通用查询和区块头订阅
@@ -68,14 +96,14 @@ func main() {
 	fmt.Println("🎧 开始监听新区块 (NewHeads)...")
 
 	// B. 订阅待处理交易 (SubscribePendingTransactions)
-	// 注意：本地 Geth 节点完全支持此功能
+	// 注意：这需要节点支持，Infura 免费版可能有限制，Alchemy 或本地节点通常支持更好
 	txSub, err := gethClient.SubscribePendingTransactions(context.Background(), pendingTxChan)
 	if err != nil {
 		log.Printf("⚠️  警告: 订阅 Pending 交易失败: %v\n"+
 			"   可能的原因：\n"+
-			"   1. Geth 节点版本过旧，不支持此功能\n"+
-			"   2. 节点配置问题\n"+
-			"   建议：检查 Geth 版本和配置", err)
+			"   1. 节点不支持 Pending Transactions 订阅\n"+
+			"   2. Infura 免费版可能限制此功能\n"+
+			"   建议：使用 Alchemy 或本地节点", err)
 		// 继续运行，只监听区块
 		txSub = nil
 	} else {

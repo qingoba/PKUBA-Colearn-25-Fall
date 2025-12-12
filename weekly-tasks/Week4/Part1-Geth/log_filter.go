@@ -23,10 +23,19 @@ import (
 
 const (
 	USDCAddress = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
-	InfuraURL   = "https://mainnet.infura.io/v3/85940542d1124d099ddfc3caa6bfe720"
 	
-	// ⭐️ 请务必检查并修改为您代理软件监听的 HTTP/SOCKS5 端口
-	PROXY_PORT = "10802" 
+	// ⚠️ 请替换为你的 Infura RPC URL
+	// 格式: https://mainnet.infura.io/v3/YOUR_API_KEY
+	// 获取方式: 访问 https://infura.io/ 注册并获取 API Key
+	InfuraURL = "https://mainnet.infura.io/v3/YOUR_API_KEY"
+	
+	// ⚠️ 请根据你的代理软件修改端口号
+	// 常见代理端口：
+	//   - Clash: 7890 (HTTP), 7891 (SOCKS5)
+	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
+	//   - Shadowsocks: 1080 (SOCKS5)
+	// 如果不需要代理，可以设为空字符串 ""
+	PROXY_PORT = "YOUR_PROXY_PORT" 
 	
 	// 设置较大的超时时间，应对代理连接延迟
 	CONNECTION_TIMEOUT = 45 * time.Second 
@@ -35,16 +44,19 @@ const (
 func main() {
 	log.Println("开始配置代理并连接到以太坊客户端")
 
-	// 1. 定义代理 URL
-	proxyUrlString := fmt.Sprintf("http://127.0.0.1:%s", PROXY_PORT)
-	proxyUrl, err := url.Parse(proxyUrlString)
-	if err != nil {
-		log.Fatalf("解析代理 URL 失败: %v", err)
-	}
-
-	// 2. 创建自定义 HTTP 传输器，强制使用代理
-	transport := &http.Transport{
-		Proxy: http.ProxyURL(proxyUrl),
+	// 1. 配置代理（如果需要）
+	var transport *http.Transport
+	if PROXY_PORT != "" && PROXY_PORT != "YOUR_PROXY_PORT" {
+		proxyUrlString := fmt.Sprintf("http://127.0.0.1:%s", PROXY_PORT)
+		proxyUrl, err := url.Parse(proxyUrlString)
+		if err != nil {
+			log.Fatalf("解析代理 URL 失败: %v", err)
+		}
+		transport = &http.Transport{
+			Proxy: http.ProxyURL(proxyUrl),
+		}
+	} else {
+		transport = &http.Transport{}
 	}
 
 	// 3. 创建自定义 HTTP 客户端，设置超时，并使用代理传输器
@@ -86,8 +98,8 @@ func main() {
 	// 1. 计算 Event Signature 哈希 (Topic 0)
 	transferEventSignature := crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
 
-	// 2. 构造查询参数 (查询最新 100 个区块)
-	const BLOCK_RANGE = 100
+	// 2. 构造查询参数 (查询最新 10 个区块)
+	const BLOCK_RANGE = 10
 	fromBlock := big.NewInt(latestBlock - BLOCK_RANGE)
 	toBlock := big.NewInt(latestBlock)
 	

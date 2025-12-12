@@ -28,15 +28,18 @@ const (
 	// ------------------------------------------------
 	// ⚠️ 关键配置：代理和 RPC URL
 	// ------------------------------------------------
-	// Infura RPC 端点 URL（包含 API Key）
-	InfuraURL = "https://mainnet.infura.io/v3/85940542d1124d099ddfc3caa6bfe720"
+	// ⚠️ 请替换为你的 Infura RPC URL
+	// 格式: https://mainnet.infura.io/v3/YOUR_API_KEY
+	// 获取方式: 访问 https://infura.io/ 注册并获取 API Key
+	InfuraURL = "https://mainnet.infura.io/v3/YOUR_API_KEY"
 	
-	// ⭐️ 代理配置：请务必检查并修改为您代理软件监听的 HTTP/SOCKS5 端口
-	// 常见的代理端口：
+	// ⚠️ 请根据你的代理软件修改端口号
+	// 常见代理端口：
 	//   - Clash: 7890 (HTTP), 7891 (SOCKS5)
 	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
 	//   - Shadowsocks: 1080 (SOCKS5)
-	PROXY_PORT = "10802"
+	// 如果不需要代理，可以设为空字符串 ""
+	PROXY_PORT = "YOUR_PROXY_PORT"
 	
 	// 连接超时时间：设置较大的超时时间，应对代理连接延迟和网络不稳定
 	CONNECTION_TIMEOUT = 45 * time.Second
@@ -126,15 +129,8 @@ func NewRateLimiter() *RateLimiter {
 func (rl *RateLimiter) Wait() {
 	// TODO: your code here
 	// 1. 计算距离上次请求的时间间隔：elapsed := time.Since(rl.lastRequestTime)
-	elapsed := time.Since(rl.lastRequestTime)
 	// 2. 如果间隔小于 rl.interval，则等待剩余时间：time.Sleep(rl.interval - elapsed)
-	if elapsed < rl.interval {
-		// 计算需要等待的剩余时间
-		sleepDuration := rl.interval - elapsed
-		time.Sleep(sleepDuration)
-	}
 	// 3. 更新 lastRequestTime：rl.lastRequestTime = time.Now()
-	rl.lastRequestTime = time.Now()
 }
 
 // 完整的高通量查询函数
@@ -209,27 +205,33 @@ func main() {
 	// ------------------------------------------------
 	log.Println("开始配置代理并连接到以太坊客户端")
 	
-	// 步骤 1.1：定义代理 URL
+	// 步骤 1.1：定义代理 URL（如果需要）
 	// 代理 URL 格式：http://127.0.0.1:端口号
 	// 注意：如果您的代理是 SOCKS5，需要先转换为 HTTP 代理，或使用支持 SOCKS5 的库
-	proxyUrlString := fmt.Sprintf("http://127.0.0.1:%s", PROXY_PORT)
-	proxyUrl, err := url.Parse(proxyUrlString)
-	if err != nil {
-		log.Fatalf("❌ 解析代理 URL 失败: %v。请检查 PROXY_PORT 配置是否正确。", err)
+	var transport *http.Transport
+	if PROXY_PORT != "" && PROXY_PORT != "YOUR_PROXY_PORT" {
+		proxyUrlString := fmt.Sprintf("http://127.0.0.1:%s", PROXY_PORT)
+		proxyUrl, err := url.Parse(proxyUrlString)
+		if err != nil {
+			log.Fatalf("❌ 解析代理 URL 失败: %v。请检查 PROXY_PORT 配置是否正确。", err)
+		}
+		log.Printf("✅ 代理 URL 解析成功: %s", proxyUrlString)
+		
+		// 步骤 1.2：创建自定义 HTTP 传输器（Transport）
+		// Transport 负责管理 HTTP 连接的底层细节
+		// Proxy 字段指定所有请求都通过该代理转发
+		transport = &http.Transport{
+			Proxy: http.ProxyURL(proxyUrl), // 强制所有请求通过代理
+		}
+		log.Println("✅ HTTP 传输器创建成功（已配置代理）")
+	} else {
+		transport = &http.Transport{}
+		log.Println("✅ HTTP 传输器创建成功（未配置代理）")
 	}
-	log.Printf("✅ 代理 URL 解析成功: %s", proxyUrlString)
-	
-	// 步骤 1.2：创建自定义 HTTP 传输器（Transport）
-	// Transport 负责管理 HTTP 连接的底层细节
-	// Proxy 字段指定所有请求都通过该代理转发
-	transport := &http.Transport{
-		Proxy: http.ProxyURL(proxyUrl), // 强制所有请求通过代理
 		// 注意：还可以配置其他选项，如：
 		// - TLSClientConfig: 自定义 TLS 配置
 		// - MaxIdleConns: 最大空闲连接数
 		// - IdleConnTimeout: 空闲连接超时时间
-	}
-	log.Println("✅ HTTP 传输器创建成功（已配置代理）")
 	
 	// 步骤 1.3：创建自定义 HTTP 客户端
 	// 将自定义的 Transport 注入到 HTTP 客户端中
