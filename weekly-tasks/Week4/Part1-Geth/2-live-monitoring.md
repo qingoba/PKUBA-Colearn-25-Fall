@@ -2,7 +2,7 @@
 
 # Part II: Geth 进阶
 
-**上周回顾:**
+**回顾:**
 在 Part I 中，我们掌握了 **历史数据的考古**：
 
   * 使用 `FilterLogs` 配合 `Topic` 和 `Event Signature` 精准定位历史事件。
