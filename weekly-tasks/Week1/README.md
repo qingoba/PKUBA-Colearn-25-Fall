@@ -13,25 +13,12 @@
 
 3️⃣ 准备好你要部署的合约代码, 可以直接使用下面的例子:
 
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-contract HelloWeb3 {
-    event Greeting(address indexed sender, uint256 timestamp);
-    
-    constructor() {}
-
-    function hello() external {
-        emit Greeting(msg.sender, block.timestamp);
-    }
-}
-```
+参考文件：[HelloWeb3.sol](./HelloWeb3.sol)
 
 🔄 操作流程详解：
 
 1. 打开 Remix IDE：[https://remix.ethereum.org](https://remix.ethereum.org/)
-2. 新建 HelloWeb3.sol 文件，粘贴上述代码
+2. 新建 HelloWeb3.sol 文件，可以使用本文件夹中的 [HelloWeb3.sol](./HelloWeb3.sol) 文件
 3. 进入 Solidity Compiler 标签页，点击“Compile”
 4. 进入 Deploy & Run Transactions 标签页
 5. 环境选择 “Injected Provider - MetaMask”

@@ -7,10 +7,12 @@ timezone: UTC+8
 
 # Alice
 
-1. 自我介绍 我是alice，软微学院
+1. 自我介绍 我是alice
 2. 你认为你会完成这次共学小组吗？try my best
 3. 你感兴趣的小组 onchain-data
 4. 你的联系方式（Wechat or Telegram）wechat：TurboxxCC
+5. 质押的交易哈希：0x82d1f6eb8dc2e42172548137b4b340fad3c74393a685dfd1fa55ac3353f26f4d
+0xe2c6e8791cf23044963d8bddc2d9f9d1f612412b7a3da8fc20436fa988f355e7
 
 ## Notes
 
@@ -28,7 +30,8 @@ Target: 0x4a6C0c0dc8bD8276b65956c9978ef941C3550A1B
 
 Solver Contract: 0xa98043afd36bc184285951765c2833aacdcf014c
 TX: 0x4aa36b17b6bb0123719733e37268e2a40e84e1a35b2a1ccce20641ee662b06ce
-
+### 2025.12.07
+本周学习了安装go客户端，安装go-ethereum库，并使用其读取链上数据
 
 
 <!-- Content_END -->

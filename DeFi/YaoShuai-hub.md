@@ -15,6 +15,8 @@ timezone: UTC+8
   DeFi
 4. 你的联系方式（Wechat or Telegram）
   Wechat：13095680918
+5. 质押的交易哈希
+  0x0e29fcc4d7dccf18284f711c24421f11a18d87b30dacaa67406cba1c4b6ff169
 ## Notes
 
 <!-- Content_START -->
@@ -30,5 +32,7 @@ timezone: UTC+8
 #### Part 2
 - [x] 成功记录: <img width="2880" height="1584" alt="image" src="https://github.com/user-attachments/assets/78014bb4-c853-4dc7-bf98-0b253d32bfe6" />
 
+### 2025.12.07
+学习B站肖臻老师的区块链课程ETH部分
 
 <!-- Content_END -->

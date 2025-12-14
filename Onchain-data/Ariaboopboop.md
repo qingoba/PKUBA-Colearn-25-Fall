@@ -30,6 +30,19 @@ timezone: UTC+8
 <img width="2372" height="1552" alt="0a949ca5-531d-4462-8e09-675d94ec93b2" src="https://github.com/user-attachments/assets/9af504de-8a0d-406f-8c84-413b95a75883" />
 
 
-### 2025.。。
+### 2025.12.07  
+#### 任务2：  
+步骤1：编写并部署一个智能合约来调用靶子合约的 hint() 方法获取解题提示
+<img width="418" height="95" alt="8020bd4c6d717577ac38a0dbf405b947" src="https://github.com/user-attachments/assets/fdb116c9-bfdd-49c3-813b-5c055cea57ae" />  
+步骤2：根据解题提示计算答案  
+<img width="505" height="143" alt="487e3fce21577e058e3b7e475d0e1a13" src="https://github.com/user-attachments/assets/0f4e3061-a1ac-4c14-9f3b-8126e93978be" />  
+步骤3：调用靶子合约的 query() 方法提交答案, 若答案正确, 则能够看到返回的 Flag 或者 ChallengeCompleted 事件  
+用 submit() 提交答案，然后在Sepolia Etherscan上查看交易收据的 “Logs” 标签页  
+<img width="1244" height="956" alt="6b9be0781faa8241fc0f999d663c5bef" src="https://github.com/user-attachments/assets/9451d063-abfe-4c60-9e98-51453a64b262" />  
+完成啦
+
+
+
+
 
 <!-- Content_END -->

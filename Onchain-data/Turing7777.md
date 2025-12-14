@@ -11,6 +11,7 @@ timezone: UTC+8
 2. 你认为你会完成这次共学小组吗？会
 3. 你感兴趣的小组 Onchain-data
 4. 你的联系方式（Wechat or Telegram）Wechat&Tel 15528556390
+5. 质押的交易哈希0x2a62a252fead114c638aea49af4f8e6d1dce4111eeddbe77b7223e6caf8f993d
 
 ## Notes
 
