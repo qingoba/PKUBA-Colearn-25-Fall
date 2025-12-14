@@ -239,4 +239,40 @@ rpcUrls := []string{
 - 学习 Layer 2 怎么减少 Gas 成本
 
 
+### 2025.12.14
+
+#### Part I Geth 进阶学习
+
+上周学会了基本的链上数据读取，这周进入高级玩法——怎么高效地批量查询历史数据，以及怎么实时监听链上事件。
+
+核心是理解 EVM Log 的结构。每条日志包含触发它的合约地址、最多 4 个 Topics 索引字段、以及非索引的 Data 数据。其中 Topic[0] 是事件签名的 Keccak256 哈希，比如 `Transfer(address,address,uint256)` 算出来就是 `0xddf252ad...`，这就是为什么能高效过滤特定事件——节点用 Bloom Filter 预先索引了这些 Topics。构造查询时通过 FilterQuery 指定区块范围、合约地址和事件签名：
+
+```go
+query := ethereum.FilterQuery{
+    FromBlock: big.NewInt(startBlock),
+    ToBlock:   big.NewInt(endBlock),
+    Addresses: []common.Address{contractAddr},
+    Topics:    [][]common.Hash{{eventSigHash}},
+}
+logs, _ := client.FilterLogs(ctx, query)
+```
+
+实际查询大范围区块时会遇到超时和限流问题。解决方案是做分页查询（把大范围拆成每次 1000 个区块的小块）、错误重试（网络抖动时自动重试）、以及速率限制（控制 RPS 避免被封）。写了个 RateLimiter 来控制请求频率，原理是记录上次请求时间，间隔不够就 sleep 等待：
+
+```go
+func (rl *RateLimiter) Wait() {
+    elapsed := time.Since(rl.lastRequestTime)
+    if elapsed < rl.interval {
+        time.Sleep(rl.interval - elapsed)
+    }
+    rl.lastRequestTime = time.Now()
+}
+```
+
+这周理清了不同客户端的层级关系。RPC Client 是最底层的通信层，负责发 JSON 请求；EthClient 封装了标准的以太坊 API，所有节点都支持；GethClient 则是 Geth 专有的 API，只有连 Geth 节点才能用。实际开发中优先用 EthClient，只有需要 Mempool 监听等高级功能才用 GethClient。
+
+Geth 适合验证和实时监控，但不适合复杂的历史查询。比如想查"Uniswap 过去一年的交易量"，用 Geth 要扫全表，效率很低。The Graph 就是解决这个问题的——它把链上数据同步下来建好索引存进数据库，用 GraphQL 查询非常方便。分页时要注意用 Cursor-based 而不是 Skip-based，前者用 `where: { id_gt: "lastID" }` 直接定位是 O(log N)，后者用 `skip: 1000` 要扫描前 1000 条是 O(N)，数据量大时性能差距明显。
+
+
+
 <!-- Content_END -->
