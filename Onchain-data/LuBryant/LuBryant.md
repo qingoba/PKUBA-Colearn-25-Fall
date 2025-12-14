@@ -192,7 +192,7 @@ contract HelloWeb3 {
     <img alt="image" src="https://github.com/user-attachments/assets/d9d361ec-11f1-46e7-b5e6-f8937a5cc975" />
 </p>
 
-### 2025.12.13
+### 2025.12.12
 
 #### 智能合约编写
 **目标**
@@ -864,15 +864,46 @@ ChallengeCompleted 是靶子合约发出来的事件，所以你要在“那笔�
 - 找到 getSolvers，点 Query
 - 然后就可以看到所有的提交成功的 address
 
+### 2025.12.13
+#### Part I - Geth 简介
+Here is the task of week3.
 
+首先了解了 Geth。The pronounce of Ethereum is "E-thur-ee-um", or like "uh·'theh·ree·uhm".
 
+这个项目不需要安装 geth，只需要在项目里引入 go-ethereum 这个 Go 库（也就是 Geth 的 Go SDK）。
 
+但是为了学习，我还是可以安装一下。
 
+Official website: https://geth.ethereum.org 
 
+Just download it and install it.
 
+显示 `PATH not updated, original length 1842 > 1024`
 
+这个报错常见原因是：一些 Windows 安装器用 NSIS 写的，更新 PATH 时有 字符串长度上限（1024），你的 PATH 已经 1842，所以它直接放弃更新。 
 
+你要做的就是 手动把 geth.exe 所在文件夹加到 PATH（推荐加到“用户 Path”，不会影响全局）：
 
+1. 找到 geth.exe 的安装目录（例如 C:\Program Files\Geth\ 或你自己选的目录）
+2. Windows：开始菜单搜索 “环境变量” → 打开 “编辑系统环境变量”
+3. 点 “环境变量…” → 在 用户变量 里选 Path → 编辑 → 新建 → 粘贴 geth 所在目录 → 一路确定
+4. 关闭并重新打开 PowerShell/cmd，然后运行：
+```shell
+where geth
+geth version
+```
+成功安装。
+
+#### Part II - Go 语言环境准备
+
+安装 Go
+官方下载：https://go.dev/dl/
+
+按系统提示安装完成后，在命令行（PowerShell / cmd）检查：
+```shell
+go version
+```
+得到 `go version go1.25.5 windows/amd64`
 
 
 
