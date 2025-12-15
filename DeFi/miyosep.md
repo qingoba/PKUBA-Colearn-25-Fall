@@ -55,5 +55,20 @@ eth_blockByNumber
 eth_getTransactionByHash
 eth_getTransactionReceipt
 
+### 2025.12.15
+1. RPC 资源限制与分页
+公共 RPC（如 Infura）对返回大小和计算量有限制。直接查询大区块范围容易超时或返回过大。
+将区块范围拆分为多个小段，分页顺序查询，以提高稳定性。
+
+2. 请求频率控制（Rate Limiting）
+RPC 服务商限制请求速率（RPS），请求过快会触发 HTTP 429。
+控制请求间隔，必要时退避重试，确保符合服务协议。
+
+3. 事件过滤与 Bloom Filter
+通过 FilterQuery 指定合约地址和事件签名（Topic0），节点可利用Bloom Filter快速筛选相关区块。
+减少无关日志扫描，高效获取特定事件（如 Swap、Transfer）。
+
+
+
 
 <!-- Content_END -->
