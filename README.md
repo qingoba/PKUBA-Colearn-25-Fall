@@ -101,7 +101,7 @@
 | Name | W1 (11.17) | W2 (11.24) | W3 (12.01) | W4 (12.08) | W5 (12.15) | W6 (12.22) | W7 (12.29) | W8 (01.05) |
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | [DeFi/CauchyK9](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/CauchyK9.md) | ✅ | ⭕️ | ⭕️ | ⭕️ |   | | | |
-| [DeFi/miyosep](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/miyosep.md) | ⭕️ | ✅ | ✅ | ⭕️ |   | | | |
+| [DeFi/miyosep](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/miyosep.md) | ⭕️ | ✅ | ✅ | ⭕️ | ✅ | | | |
 | [Onchain-data/Afterglow36](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36.md) | ✅ | ✅ | ✅ | ⭕️ |   | | | |
 | [Onchain-data/ai0415](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ai0415.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ |   | | | |
 | [Security/henrymartin262](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Security/henrymartin262.md) | ✅ | ✅ | ✅ | ✅ |   | | | |
@@ -128,6 +128,7 @@
 | [Onchain-data/0xinsternet](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/0xinsternet.md) | ⭕️ | ⭕️ | ✅ | ✅ |   | | | |
 | [Onchain-data/LuBryant/LuBryant](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/LuBryant/LuBryant.md) | ⭕️ | ⭕️ | ✅ | ✅ |   | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
