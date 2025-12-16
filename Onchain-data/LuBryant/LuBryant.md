@@ -894,21 +894,243 @@ geth version
 ```
 成功安装。
 
+### 2025.12.17
+
 #### Part II - Go 语言环境准备
 
-安装 Go
+Go（Golang）是 Google 开发的一门静态强类型语言，语法相对简洁，内置并发支持。Geth 本身就是用 Go 写的，因此官方提供的以太坊客户端库也是用 Go 实现的。你只需要会：
+
+- 安装 Go 并能在命令行运行 `go`；
+- 新建一个最简单的 Go 项目；
+- 知道如何 `import` 其他库，并调用它们提供的函数。
+
+关于 Go 的语法，可以参考：
+
++ A Tour of Go https://go.dev/tour/list
++ 中文版 https://tour.go-zh.org/list
+
+##### 1. 安装 Go
+
 官方下载：https://go.dev/dl/
 
 按系统提示安装完成后，在命令行（PowerShell / cmd）检查：
-```shell
+
+```bash
 go version
 ```
+
+如果能看到版本号（例如 `go version go1.22.3 windows/amd64`），说明安装成功。
+
 得到 `go version go1.25.5 windows/amd64`
 
+> 小提示：  
+> 后续所有 `go xxx` 命令都是在命令行里执行，而不是在 Go 源码文件里写。
+
+##### 2. 新建项目
+
+在你准备存放本周代码的目录下，新建一个文件夹并初始化 Go 模块：
+
+```bash
+mkdir week3-geth
+cd week3-geth
+go mod init week3-geth
+```
+
+`go mod init` 会创建一个 `go.mod` 文件，记录当前项目的模块名和依赖信息，后面 `go get` 的第三方库都会写进这里。
+
+创建 `main.go`：
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("hello go")
+}
+```
+
+运行：
+
+```bash
+go run main.go
+```
+
+如果能在命令行看到输出 `hello go`，说明你的 Go 环境和项目结构是正常的。
+
+（运行的时候一直卡住，后面突然又好了）
+
+> 你可以把后面所有示例代码都放在这个 `main.go` 里，逐步替换和扩展。
+
+##### 3. 安装 go-ethereum 库
+
+本课所有与以太坊交互的能力，都来自官方的 `go-ethereum` 库。我们用 `go get` 把它加入当前项目依赖：
+
+```bash
+go get github.com/ethereum/go-ethereum
+```
+
+执行完成后，你会在 `go.mod` / `go.sum` 里看到相应记录；在代码里就可以这样引用：
+
+```go
+import "github.com/ethereum/go-ethereum/ethclient"
+```
+
+> 中国大陆访问 go-ethereum 依赖失败，可设置 Go 代理：
+> - **Windows (PowerShell)：**
+>   ```powershell
+>   $env:GOPROXY="https://goproxy.cn,direct" # 临时代理, 在同一终端会话生效
+>   ```
+> - **Linux/macOS (bash/zsh)：**
+>   ```bash
+>   export GOPROXY=https://goproxy.cn,direct # 临时代理, 在同一终端会话生效
+>   ```
+>   设置后重新执行 `go get` 命令即可。
+
+本课用到的 Go 知识基本只有：
+
+- `package main` / `func main()` 入口函数；
+- `import` 引入标准库和第三方库；
+- 基本的函数调用、错误处理（`if err != nil { ... }`）；
+- 使用 `go-ethereum` 提供的类型和方法（例如 `ethclient.Dial`、`HeaderByNumber` 等）。
+
+其余语法如果暂时不熟悉，可以边查边用，不影响完成本周任务。
+
+#### Part III - 使用 go-ethereum 读取链上数据
 
 
+引入客户端：
 
+```go
+import "github.com/ethereum/go-ethereum/ethclient"
+```
 
+连接到 Sepolia RPC
+
+```go
+client, err := ethclient.Dial("https://ethereum-sepolia-rpc.publicnode.com")
+if err != nil {
+    panic(err)
+}
+```
+
+获取当前区块高度
+
+```go
+header, err := client.HeaderByNumber(context.Background(), nil)
+fmt.Println("current block:", header.Number.String())
+```
+
+查询区块
+
+```go
+blockNumber := big.NewInt(123456)
+block, _ := client.BlockByNumber(context.Background(), blockNumber)
+
+fmt.Println("hash:", block.Hash().Hex())
+fmt.Println("parent:", block.ParentHash().Hex())
+fmt.Println("tx count:", len(block.Transactions()))
+```
+
+查询交易与回执
+
+```go
+txHash := common.HexToHash("0x你的交易哈希")
+tx, _, _ := client.TransactionByHash(context.Background(), txHash)
+
+fmt.Println("to:", tx.To())
+fmt.Println("value:", tx.Value().String())
+```
+
+Receipt：
+
+```go
+receipt, _ := client.TransactionReceipt(context.Background(), txHash)
+
+fmt.Println("status:", receipt.Status)
+fmt.Println("logs:", receipt.Logs)
+```
+
+合并到一起的一个样例，该样例仅打印了部分字段，建议同学们修改代码，打印出完整的结构: 
+
+参考完整代码文件：[main.go](./main.go)
+
+```bash
+Current block: 9750075
+Block #123456 hash: 0x2056507046b07a5d7ed4f124a7febce2aec7295b464746523787b8c2acc627dc
+Parent hash: 0x93bff867b68a2822ee7b6e0a4166cfdf5fc4782d60458fae1185de9b2ecdba16
+Tx count: 0
+Tx pending: false
+To: 0x9Bd28675069f200961B50F13C476aDa5e7067C31
+Value (wei): 0
+Receipt status: 1
+Logs: 2 entries
+# 如果一切正常, 你将会得到类似于上面的输出结果
+# 你可以修改代码打印任何你想查询的数据和数据结构
+```
+
+我的结果
+```bash
+Current block: 9854809
+Block #123456 hash: 0x2056507046b07a5d7ed4f124a7febce2aec7295b464746523787b8c2acc627dc
+Parent hash: 0x93bff867b68a2822ee7b6e0a4166cfdf5fc4782d60458fae1185de9b2ecdba16
+Tx count: 0
+Tx pending: false
+To: 0x9Bd28675069f200961B50F13C476aDa5e7067C31
+Value (wei): 0
+Receipt status: 1
+Logs: 2 entries
+```
+
+#### Follow Up - 理解 block, transaction, receipt 的结构
+
+上一节中查询到的数据会包含大量字段。本部分任务要求理解其中关键字段的含义。
+
+关于 Block 建议理解的字段包括：
+
+- number
+- hash
+- parentHash
+- timestamp
+- gasUsed / gasLimit
+- transactions
+
+Follow-Up：
+
+- 为何 parentHash 能形成区块链？
+- gasLimit 如何影响合约执行
+
+***
+
+关于 Transcation 建议理解的字段包括：
+
+- nonce
+- from / to
+- input (call data)
+- gas / gasPrice
+- value
+- type (legacy, EIP-1559)
+
+Follow-Up：
+
+- 什么是 ABI ？一笔交易最终执行逻辑是如何解析 input 的
+
+***
+
+关于 Receipt 建议理解的字段包括:
+
+- status
+- logs
+- contractAddress
+
+***
+
+可供参考的资料包括但不限于，也可以自行检索：
+
++ https://www.bilibili.com/video/BV1Vt411X7JF
++ 以太坊文档里关于 Blocks 的介绍：https://ethereum.org/developers/docs/blocks/
++ https://ethereum.org/developers/docs/transactions/
++ https://www.geeksforgeeks.org/computer-networks/ethereum-block-structure/
 
 
 
