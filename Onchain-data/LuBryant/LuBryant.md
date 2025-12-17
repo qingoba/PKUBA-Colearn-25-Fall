@@ -19,12 +19,18 @@ timezone: UTC+8
 <!-- Content_START -->
 
 ### 2025.12.07
-
+#### 学习计划和资料
 刚刚学可以看一些入门视频：
 - [WEB3新人公开课——PKU BLOCKCHAIN DAO - PKU学生区块链中心](https://space.bilibili.com/586660955/lists/894352?type=season)
 - [WEB3进阶公开课——PKU BLOCKCHAIN DAO - PKU学生区块链中心](https://space.bilibili.com/586660955/lists/4309697?type=season)
 - [从0到1到∞：14讲学懂区块链 - BTCU高校区块链社区](https://space.bilibili.com/477534964/lists/864223?type=series)
 - [区块链/web3/加密货币](https://space.bilibili.com/1122798707/lists/5206919?type=season)
+- [CS 251: Blockchain Technologies - Stanford University 2025](https://cs251.stanford.edu/) Only videos in 2019 are avilable.
+- https://www.youtube.com/watch?v=Ud3r6GV8_Jw
+- https://online.stanford.edu/courses/xcs251-cryptocurrencies-and-blockchain-technologies
+- [Bitcoin and Cryptocurrency Technologies - Princeton 2015](https://www.coursera.org/learn/cryptocurrency/course-inbox)
+- [Berkeley RDI - The Berkeley Center for Responsible, Decentralized Intelligence](https://rdi.berkeley.edu/)
+- [Decentralized Finance - Berkeley RDI](https://rdi.berkeley.edu/berkeley-defi/f25)
 
 #### Github 上复制文件
 方法一：使用 GitHub Web Editor（最推荐，快捷键 .）
@@ -275,11 +281,11 @@ raw logs	[
 ### 2025.12.12
 
 #### Week 1 Part II - 智能合约编写
-**目标**
+##### 目标
 
 通过编写智能合约与靶子合约交互，获取 Flag 并触发 `ChallengeCompleted` 事件。
 
-**靶子合约信息**
+##### 靶子合约信息
 
 合约地址：`0x4a6C0c0dc8bD8276b65956c9978ef941C3550A1B`
 
@@ -291,19 +297,19 @@ raw logs	[
 - `query(bytes32 _hash)` - 提交答案获取 Flag, 该方法只能通过合约调用
 - `getSolvers()` - 查看所有完成者地址
 
-**参考步骤**
+##### 参考步骤
 
 1. 编写并部署一个智能合约来调用靶子合约的 `hint()` 方法获取解题提示
 2. 根据解题提示计算答案
 3. 调用靶子合约的 `query()` 方法提交答案, 若答案正确, 则能够看到返回的 Flag 或者 ChallengeCompleted 事件
 
-**注意事项**
+##### 注意事项
 
 - 靶子合约要求调用者必须是合约地址，不能直接用钱包调用
 - 可以多次尝试，每次成功都会触发事件
 - 与合约交互需要消耗 Gas Fee, 可以参考笔试文档来获取测试网代币 https://github.com/aliceyzhsu/crypto-techguy/blob/main/quests/get-ready.md
 
-**参考资料**
+##### 参考资料
 
 - [Solidity 官方文档](https://docs.soliditylang.org/), [WTF 中文 Solidity 教程](https://www.wtf.academy/zh/course/solidity101)
 - [Foundry 教程](https://book.getfoundry.sh/), Foundry 是一个工具集, 包含智能合约的构建/部署/调试等功能
@@ -976,7 +982,7 @@ ChallengeCompleted 是靶子合约发出来的事件，所以你要在“那笔�
 
 可以先把以太坊理解成一个由全球许多计算机共同维护的公共账本，没有中心服务器。要让这个系统正常运作，主要涉及三个概念：**以太坊客户端、节点、RPC**。
 
-**1. 以太坊客户端：协议的具体实现**
+###### 1. 以太坊客户端：协议的具体实现
 
 以太坊客户端是一类遵循以太坊协议的软件实现，比如 Geth、Nethermind、Erigon 等。它们负责：
 
@@ -990,7 +996,7 @@ ChallengeCompleted 是靶子合约发出来的事件，所以你要在“那笔�
 > 使用情景：  
 > 你在电脑上安装并运行 Geth，实际上就是在运行一个以太坊客户端实例，它会开始从网络上同步区块，把本地变成一个以太坊节点。
 
-**2. 节点：运行客户端的软件实例**
+###### 2. 节点：运行客户端的软件实例
 
 “节点”指的是**运行了以太坊客户端程序的机器**。从功能和数据完整性角度，一般分为：
 
@@ -1003,7 +1009,7 @@ ChallengeCompleted 是靶子合约发出来的事件，所以你要在“那笔�
 > 使用情景： 你在钱包里发起一笔转账交易.
 > 交易从钱包发出之后，会先发送给一个或多个节点，这些节点再向网络扩散。最终，有矿工/验证人节点把它打包进区块，你的交易才真正“上链”。
 
-**3. RPC：给外部程序用的访问接口**
+###### 3. RPC：给外部程序用的访问接口
 
 RPC（Remote Procedure Call，远程过程调用）是节点向外暴露的一组标准接口，用来**让其他程序查询或提交数据**，常见是 HTTP RPC 或 WebSocket RPC。
 
@@ -1024,7 +1030,7 @@ RPC 的好处是：你不需要在自己的程序里实现底层网络协议，�
 
 Geth（Go Ethereum）是用 Go 语言实现的以太坊客户端，也是目前使用最广泛的实现之一。它主要包含两部分：
 
-**1. 命令行程序 `geth`**
+###### 1. 命令行程序 `geth`
 
 安装 Geth 后，你会得到一个名为 `geth` 的命令行工具。运行它可以：
 
@@ -1044,7 +1050,7 @@ geth --sepolia --http --http.api eth,net,web3
 > 使用情景：  
 > 如果你要自己搭一个“私有的 RPC 节点”做数据分析，可以在一台云服务器上跑 `geth`，开 HTTP RPC，然后你的分析脚本就可以连这台服务器，而不是用公共 RPC。
 
-**公共 RPC 节点 vs 私有 RPC 节点**
+###### 公共 RPC 节点 vs 私有 RPC 节点
 
 从 Geth / 客户端库的视角看，区别就是你 `Dial` 的 URL 不同，但在权限和成本上差异很大：
 
@@ -1062,7 +1068,7 @@ geth --sepolia --http --http.api eth,net,web3
 > - 本课程 / 一般练习：直接连公共的 Sepolia RPC 即可，比如：`https://ethereum-sepolia-rpc.publicnode.com`。  
 > - 需要扫主网大量历史数据、或做交易所钱包服务时，更倾向于自己起一个 Geth 节点，跑私有 RPC。
 
-**2. Go 客户端库（`go-ethereum`）**
+###### 2. Go 客户端库（`go-ethereum`）
 
 除了命令行工具，Geth 还提供了一套 Go 客户端库，方便在 Go 代码里和以太坊交互。常用的是 `ethclient` 包：
 
@@ -1374,17 +1380,65 @@ Logs: 2 entries
 
 关于 Block 建议理解的字段包括：
 
+- 以太坊里一个 block 可以理解成：Header（头） + Body（体）
+  - Header：描述这个区块“是谁、什么时候、接在谁后面、允许消耗多少 gas”等元信息
+  - Body：主要就是 transactions（交易列表）以及叔块等（现在 PoS 语境下概念略变，但你用 go-ethereum 读到的结构仍是类似组织）
 - number
+  - 区块高度，从 0 开始递增。
+  - 用它可以定位区块序列位置，但不具备抗篡改性（真正抗篡改靠 hash 链接）。
 - hash
-- parentHash
+  - 区块头（header）内容哈希后的结果（简化理解即可）。
+  - 只要 header 任一关键字段变化（如 timestamp、parentHash、stateRoot、transactionsRoot…），hash 就会变化。
+- parent Hash
+  - 上一个区块的 hash。
+  - 客户端用它把区块连成“从创世块开始的一条链”。
 - timestamp
+  - 出块时间（Unix 时间戳）。
+  - 注意它不是“绝对可信的墙钟时间”，协议只要求满足一些约束（例如必须大于父块时间戳等），所以更适合用作“链上时间近似”。
 - gasUsed / gasLimit
+  - gasLimit（区块级）：这个区块 最多允许消耗的总 gas 上限（所有交易的 gas 消耗加起来不能超过它）。
+  - gasUsed（区块级）：这个区块 实际消耗的 gas 总量。
+  - 直观理解：gasLimit 决定了一个区块最多能塞多少计算/多少交易，gasUsed 则是“实际塞了多少”。
 - transactions
+  - 区块中交易列表（每笔交易至少包含 from/to/value/data/gas/gasPrice 或 EIP-1559 字段等）。
+  - 你这儿 Tx count: 0 表示该区块没有交易，所以“区块体”里交易数组为空。
+
+Transaction（交易） vs Receipt（回执）
+Transaction 常见关键字段（你输出里出现了 To、Value、pending 等）
+- to：接收方地址
+  - 若是 合约创建交易：to == nil（或显示为空），新合约地址会在 receipt 里给你（contractAddress）。
+- value：转账 ETH 数量（单位 wei）。你这里 Value (wei): 0 表示这笔交易没有转 ETH（但仍可能在调用合约、写状态）。
+- data：调用合约的 calldata（ABI 编码后）。
+- gas（交易级上限）：发送方愿意为这笔交易最多提供多少 gas（注意这和区块的 gasLimit 不一样）。
+- pending：是否还在 mempool 未被打包。你这里 Tx pending: false 表示已上链（或至少节点认为不在 pending 状态）。
+
+Receipt（回执）关键字段（你输出里出现了 Receipt status、Logs）
+- status：执行是否成功
+  - 1 成功，0 失败（失败通常意味着 revert 或异常）。你这里 Receipt status: 1。
+- logs：事件日志数组（合约 emit Event(...) 产生）
+  - 你这里 Logs: 2 entries 表示这笔交易执行过程中发出了 2 条事件日志。
+- 常见但你没打印的还有：gasUsed（交易实际消耗）、transactionIndex（在区块中的位置）、blockHash/blockNumber（所属区块）等。
 
 Follow-Up：
 
-- 为何 parentHash 能形成区块链？
+- 为何 parent Hash 能形成区块链？
+  - 核心原因：每个区块都把父区块的 hash “写死”在自己的 header 里。
+  - 假设有链 ... -> B(n-1) -> B(n)，其中 B(n).parentHash = hash(B(n-1))
+  - 如果有人想篡改 B(n-1) 的内容（比如改交易），那么 hash(B(n-1)) 会变化
+  - 于是 B(n) 里记录的 parentHash 就不匹配了，链会断掉
+  想让链重新接上，必须同时重写 B(n)、B(n+1)… 直到最新块，并且还要在共识规则下“赢过”诚实网络（PoW 时代是算力，PoS 时代是权益/最终性与验证者投票机制）
 - gasLimit 如何影响合约执行
+  - 交易级 gas 上限（tx.gas / gasLimit）：限制“这笔交易最多能花多少 gas”
+    - 如果执行过程中 gas 不够，会 Out of Gas，状态回滚（但已消耗的 gas 仍会付费）。
+    - 所以：交易发起者设得太小，合约再正确也可能跑不完。
+  - 区块级 gasLimit（block.gasLimit）：限制“一个区块内所有交易加起来最多能消耗多少 gas”
+    - 矿工/出块者在打包交易时，不能让总 gasUsed 超过这个上限。
+    - 所以：区块 gasLimit 越高，理论上每个区块能容纳的计算越多，吞吐更高；但也会带来更大的区块验证/传播压力（网络与节点成本上升），所以它是性能与去中心化成本之间的权衡点。
+  - 对“合约执行”最直接的影响是：
+    - 单笔合约调用能否完整执行：主要看交易级 gas 上限是否足够。
+    - 你的交易能否尽快被打包：还受区块级 gasLimit + 当前区块拥堵度 + 费用报价影响。
+  
+
 
 ***
 
@@ -1418,11 +1472,726 @@ Follow-Up：
 + https://ethereum.org/developers/docs/transactions/
 + https://www.geeksforgeeks.org/computer-networks/ethereum-block-structure/
 
-#### Week 4 Part1-Geth
+### 2025.12.18
+
+#### Week 4 Part1-Geth-Part I: Geth
+
+##### 上周回顾:
+
+###### I. Geth：以太坊的 Go 语言客户端
+
+**Geth**（Go-Ethereum）是用 Go 语言编写的以太坊协议的官方客户端。
+
+* **性质：** Geth 是最主流的**执行客户端**，负责处理交易和维护区块链状态。
+* **功能：** 它运行一个以太坊**节点**（如全节点），同步数据，并提供 **JSON-RPC API** 接口，允许外部程序（如您用 Go 编写的分析工具）连接并查询链上信息。
+    
+---
+
+###### II.  以太坊核心数据结构
+
+以太坊区块链的三大核心数据结构：
+
+| 数据结构 | 作用 | 关键点 |
+| :--- | :--- | :--- |
+| **Block (区块)** | 存储一组已验证的交易。 | **`ParentHash`** 将区块首尾相连，形成不可篡改的链。 |
+| **Transaction (交易)** | 用户提交的操作指令（转账、合约调用）。 | **`Input`** 字段包含合约调用的指令和参数，由 **ABI** 解析。 |
+| **Receipt (回执)** | 交易执行后的结果证明。 | **`Status`** (成功/失败) 和 **`Logs`** (合约发出的事件数据) 是最重要的信息。 |
+
+---
+
+**🔥 下一步：** 我们将专注于 **Receipt 中的 `Logs`**，这是获取合约事件数据的关键。我们将学习如何使用 Geth 的 Go 客户端进行**日志过滤**和**高通量数据查询**。
+
+##### 内容:
+
+本部分的核心是掌握如何使用 **Go 语言客户端（go-ethereum/ethclient)** 高效、稳定地查询和订阅以太坊数据。
+
+🎯 目标: 掌握使用 `ethclient` 库进行以下操作：
+
+1. **历史数据查询：** 通过 `FilterLogs` 高效过滤和分页查询历史合约事件（Logs）。
+
+2. **实时数据监控：** 使用 `SubscribeNewHead` 和 `SubscribePendingTransactions` 实时监听新区块和待处理交易。
+
+3. **链上状态读取：** 使用 `CallContract` 读取合约的只读状态，并探索回溯到任意历史状态的能力。
+
+##### I. FilterLogs
+
+###### 背景知识
+
+EVM 日志（Log）是智能合约与链下世界通信的桥梁，是合约执行期间产生的只读数据记录，主要用于前端交互、数据索引和状态监控。
+
+**1. Log 核心结构**
+
+一个 EVM Log 包含三个核心部分：
+
+| 字段 | 说明 | 关键特性 |
+| :--- | :--- | :--- |
+| **Address** | 触发该日志的合约地址 | 标识事件的来源 |
+| **Topics** | 用于索引的字段数组 | 最多 4 个，每个 32 字节，用于 Bloom Filter 快速查找 |
+| **Data** | 非索引的负载数据 | 包含无法直接搜索的具体数值（如转账金额、复杂结构体） |
+
+**2. Topics 详解**
+
+**Topics** 是日志中最关键的部分，决定了如何过滤和查找事件。
+
+- **Topic 0 (事件签名):**
+  - 必填项（匿名事件除外），用于标识事件类型
+  - 计算公式: $Topic_0 = Keccak\text{-}256(\text{"EventName(type1,type2,...)"})$
+  - 注意: 签名字符串中不能包含参数名称，且参数类型间不能有空格
+
+- **Topic 1-3 (索引参数):**
+  - 对应 Solidity 中被标记为 `indexed` 的参数
+  - 用于快速筛选（例如："查询所有 A 转出的记录"）
+
+**什么是 Event Signature？**
+
+**Event Signature（事件签名）** 是事件的唯一标识符，用于在日志中识别特定类型的事件。
+
+- **定义：** 事件签名字符串格式为 `EventName(type1,type2,...)`，其中只包含事件名称和参数类型，不包含参数名称
+- **计算：** 对签名字符串进行 Keccak-256 哈希，得到 32 字节的哈希值，存储在 Topic 0 中
+- **作用：** 通过匹配 Topic 0，可以快速过滤出特定类型的事件（如所有 `Transfer` 事件）
+
+**示例：**
+- 事件定义: `event Transfer(address indexed from, address indexed to, uint256 value);`
+- 事件签名: `Transfer(address,address,uint256)`
+- Topic 0: `Keccak256("Transfer(address,address,uint256)")`
+
+**3. 示例：ERC-20 Transfer 事件**
+
+以标准的 ERC-20 `Transfer` 事件为例：
+
+```solidity
+// 注意 indexed 关键字
+event Transfer(address indexed from, address indexed to, uint256 value);
+```
+
+**执行场景：** 用户 A 向用户 B 转账 100 代币，合约执行 `emit Transfer(A, B, 100);`
+
+**生成的 Log 结构：**
+
+| 字段 | 值 | 说明 |
+| :--- | :--- | :--- |
+| **Topic 0** | `Keccak256("Transfer(address,address,uint256)")` | 事件签名哈希 |
+| **Topic 1** | `0x000...用户A地址` (32 字节) | 第一个 `indexed` 参数 (from) |
+| **Topic 2** | `0x000...用户B地址` (32 字节) | 第二个 `indexed` 参数 (to) |
+| **Data** | `100` (十六进制) | 未标记 `indexed` 的参数 (value) |
+
+**特点：** Data 字段存储更便宜，但无法直接通过以太坊节点 API 进行条件过滤。
+
+**4. Log 的存储特性与应用**
+
+- **Gas 经济学：**
+  - **Storage:** 永久存储在状态树中，所有合约可见，读写昂贵
+  - **Log:** 存储在交易收据中，合约无法读取，Gas 费用远低于 Storage
+
+- **应用场景：**
+  - **前端响应:** MetaMask 等钱包监听 Log 更新余额
+  - **数据索引:** The Graph/Dune 通过 Topic 过滤构建历史数据库
+  - **链下触发器:** 中心化交易所收到 Log 后自动入账
+
+**底层的 eth_call 是什么？**
+
+**`eth_call`** 是以太坊客户端（如 Geth）用于进行"只读查询"的核心 JSON-RPC 方法。
+
+- **功能：** 模拟执行合约的函数调用（主要是读取状态的函数），获取链上数据
+- **特点：**
+  - **不发送交易**，不消耗 Gas
+  - **不改变**区块链状态
+  - 可以查询**历史区块状态**（通过指定 block number 参数）
+- **应用：** 
+  - 预先验证交易是否会成功
+  - 读取合约的只读状态
+  - 对任意历史状态进行"时间旅行"式查询
+
+**注意：** `FilterLogs` 底层通过 `eth_getLogs` RPC 方法实现，而 `CallContract` 则使用 `eth_call` 方法。
+
+###### 基础实现
+
+通过合约地址和 Event Signature 过滤日志的完整实现代码请参考：[log_filter.go](./log_filter.go)
+
+该代码实现了以下核心功能：
+
+1. **代理配置：** 配置 HTTP 代理以访问 Infura RPC 服务
+2. **RPC 连接：** 使用自定义 HTTP 客户端连接到以太坊节点
+3. **事件签名计算：** 计算 `Transfer(address,address,uint256)` 事件的签名哈希（Topic 0）
+4. **日志过滤：** 使用 `FilterLogs` 方法查询指定合约地址和事件签名的历史日志
+
+###### 使用说明
+
+**前置条件：**
+
+1. **获取 Infura API Key：**
+   - 访问 [MetaMask Developer](https://developer.metamask.io/) 注册账号
+   - 创建新项目，选择 Ethereum 网络
+   - 复制 API Key（格式：`https://mainnet.infura.io/v3/YOUR_API_KEY`）
+   - 在代码文件 [log_filter.go](./log_filter.go) 中替换 `InfuraURL` 常量
+
+2. **配置代理（中国大陆用户）：**
+   - 代码中已配置代理支持，请根据实际情况修改 `PROXY_PORT` 常量
+   - 常见代理端口：
+     - Clash: 7890 (HTTP), 7891 (SOCKS5)
+     - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
+     - Shadowsocks: 1080 (SOCKS5)
+   - 为保证可以顺利连接, 请尽量打开**全局代理**模式
+
+**环境配置：**
+
+- 初始化依赖：运行 `go mod tidy` 自动安装所需包
+- 如遇 Go 包安装问题（Windows），设置代理：`$env:GOPROXY="https://goproxy.cn,direct"`
+- 运行代码：`go run log_filter.go`
+
+**代码实现说明：**
+
+参考 [log_filter.go](./log_filter.go) 中的实现，该代码实现了**根据合约地址和事件签名过滤历史日志**的功能：
+
+1. **地址过滤：** 通过 `Addresses: []common.Address{usdcAddr}` 指定查询 USDC 合约地址
+2. **事件签名过滤：** 通过 `Topics: [][]common.Hash{{transferEventSignature}}` 指定 `Transfer` 事件的签名（Topic 0）
+3. **区块范围：** 查询最新 100 个区块内的日志
+4. **查询方法：** 使用 `client.FilterLogs(ctx, query)` 执行过滤查询
+
+###### 输出示例与解释
+
+运行成功后，输出示例如下：
+
+```text
+2025/12/10 19:15:16 开始配置代理并连接到以太坊客户端
+2025/12/10 19:15:16 连接到以太坊客户端成功 (已配置代理)
+2025/12/10 19:15:16 正在获取最新区块号...
+2025/12/10 19:15:18 最新区块号: 23981946
+2025/12/10 19:15:18 查询 USDC 地址: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+2025/12/10 19:15:18 查询区块范围: 23981846 到 23981946 (共 100 个区块)
+2025/12/10 19:15:18 开始查询日志...
+✅ 成功: 在区块 23981846 到 23981946 之间找到了 6645 条 Transfer 事件日志
+--- 第一条 Log 详情 ---
+TxHash: 0x3e12511e30a45f3b6d422d8f98c9f9a4f437c22dff51118fe244d796bcc2d21e
+BlockNumber: 23981846
+Topics: [0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef 0x00000000000000000000000087f643460e3d26efc839f61c2997753a30e2c72e 0x000000000000000000000000432505f4c6409d64ba53ea34b09365e9c9b446a4]
+注意: 要获取可读的转账金额，需要使用 ABI 解码 log.Data 字段。
+```
+
+**输出解释：**
+
+| 输出内容 | 说明 |
+| :--- | :--- |
+| **最新区块号: 23981946** | 当前以太坊主网的最新区块高度 |
+| **查询区块范围: 23981846 到 23981946** | 查询最近 100 个区块（23981846-23981946） |
+| **找到了 6645 条 Transfer 事件日志** | 在指定范围内，USDC 合约共产生了 6645 次转账事件 |
+| **TxHash** | 包含该事件的交易哈希 |
+| **BlockNumber** | 该事件所在的区块号 |
+| **Topics[0]** | `0xddf2...` 是 `Transfer(address,address,uint256)` 的事件签名哈希 |
+| **Topics[1]** | `0x000...87f6...` 是转账发送方地址（from，填充至 32 字节） |
+| **Topics[2]** | `0x000...4325...` 是转账接收方地址（to，填充至 32 字节） |
+| **log.Data** | 包含转账金额（需要 ABI 解码才能读取） |
+
+**注意：** 代码成功实现了根据合约地址（USDC）和事件签名（Transfer）过滤历史日志的功能。
+
+##### Challenge⚔️: 高通量数据的高效查询和处理
+
+在实际应用中，查询大量历史日志（如 Uniswap V2 的 Swap 事件）会面临以下挑战：
+
+1. **数据量巨大：** 单次查询可能返回数万条日志，导致超时或内存溢出
+2. **API 限制：** RPC 服务商（如 Infura）有 RPS（每秒请求数）限制
+3. **网络错误：** 需要处理连接超时、临时网络故障等异常情况
+
+**挑战目标：** 实现一个健壮的高通量日志查询系统，支持分页查询、错误重试和 RPS 限制。
+
+###### 代码框架
+
+完整的代码框架和实现请参考：[log_filter_big.go](./log_filter_big.go)
+
+该代码框架提供了以下功能模块：
+
+1. **分页查询：** `paginatedQueryLogs()` - 将大范围区块分割成多个小范围，逐页查询并合并结果
+2. **错误重试：** `queryLogsWithRetry()` - 查询失败时自动重试，最多重试 MaxRetries 次
+3. **速率限制：** `RateLimiter` - 控制请求频率，避免触发 API 的 RPS 限制
+4. **完整查询：** `queryHighVolumeLogs()` - 结合分页、重试和速率限制的完整查询函数
+
+代码中包含标记为 `// TODO: your code here` 的部分，需要您完成实现。
+
+###### 实现提示
+
+参考 [log_filter_big.go](./log_filter_big.go) 中的代码框架，需要完成以下部分：
+
+1. **分页查询：** 将大范围区块分割成多个 `MaxBlockRange` 大小的小范围，逐页查询
+   - 计算当前页的结束区块号（不能超过总结束区块）
+   - 调用 `client.FilterLogs()` 查询当前页
+   - 合并结果并更新起始区块
+
+2. **错误重试：** 使用固定延迟，在查询失败时自动重试
+   - 实现重试循环（最多 MaxRetries 次）
+   - 失败时等待 RetryDelay 后重试
+   - 达到最大重试次数后返回错误
+
+3. **RPS 限制：** 使用时间戳记录上次请求时间，确保请求间隔不小于 `RequestInterval`
+   - 计算距离上次请求的时间间隔
+   - 如果间隔小于 interval，则等待剩余时间
+   - 更新 lastRequestTime
+
+###### 测试建议
+
+- 先用小范围区块（如 100 个区块）测试基本功能
+- 逐步增大查询范围，观察分页和速率限制的效果
+- 模拟网络错误（如断开代理），验证重试机制是否生效
+
+---
+
+#### Week 4 Part1-Geth-Part II: Geth 进阶
+
+**回顾:**
+在 Part I 中，我们掌握了 **历史数据的考古**：
+
+  * 使用 `FilterLogs` 配合 `Topic` 和 `Event Signature` 精准定位历史事件。
+  * 理解了 `Block`、`Transaction` 和 `Receipt` (Logs) 的关系。
+  * 解决了高通量查询（Pagination）和 API 限制的问题。
+
+**🔥 下一步：** 区块链不仅仅是静态的历史数据库，它是一条奔流不息的河。
+本部分我们将学习 **实时数据的监控 (Live Monitoring)**。这将是你编写 MEV Bot、链上监控报警系统（如大额转账监控）或实时数据看板的基础。
+
+-----
+
+##### 内容: 实时订阅与客户端架构
+
+🎯 **目标:**
+
+1.  **架构认知：** 彻底理清 `rpc.Client`, `ethclient`, `gethclient` 的区别与联系。
+2.  **区块监听：** 使用 `SubscribeNewHead` 第一时间获取新区块生成信号。
+3.  **交易池监听：** 使用 `SubscribePendingTransactions` 监听未打包交易（Mempool），这是 MEV 的战场。
+
+-----
+
+###### I. Geth 客户端架构 (The Client Hierarchy)
+
+在使用 Go 开发以太坊应用时，你经常会看到几种不同的 Client 初始化方式。如果不理解它们的层级关系，看源码时会非常晕。
+
+**1. 三层架构模型**
+
+这三层客户端的关系类似于**计算机系统的分层架构**：
+
+| 客户端层级 | 包路径 (`go-ethereum`) | 作用与特点 | 类比说明 |
+| :--- | :--- | :--- | :--- |
+| **RPC Client**<br>(底层) | `rpc` | **基础通信层**。负责建立 TCP/HTTP/WebSocket 连接，发送原始 JSON 请求并接收响应。它不关心业务逻辑，只管传输数据包。 | **硬件层**<br>就像计算机的硬件（CPU、内存、网卡），只负责底层的物理通信，不关心传输的是什么内容。 |
+| **EthClient**<br>(标准层) | `ethclient` | **通用标准层**。封装了以太坊通用的 JSON-RPC 方法（如 `eth_getBalance`, `eth_call`）。它是大多数开发者的首选。它底层持有一个 `rpc.Client`。 | **操作系统层**<br>就像操作系统提供的标准 API（如 Windows API、MacOS syscall），定义了通用的接口规范，所有以太坊节点都遵循这些标准。 |
+| **GethClient**<br>(特化层) | `eth/gethclient` | **Geth 专用层**。封装了 Geth 节点特有的、非通用标准的 API（通常涉及节点管理、TxPool 深度操作等）。它底层也持有一个 `rpc.Client`。 | **应用层**<br>就像特定操作系统上的专用软件（如 macOS 的特定应用），只能与 Geth 节点配合使用，其他客户端（如 Nethermind、Erigon）可能不支持这些接口。 |
+
+**关键理解：**
+
+- **兼容性关系：** 就像你不能在 macOS 上直接运行 Windows 的 `.exe` 文件，`GethClient` 的方法只能在 Geth 节点上使用，不能用于其他客户端。
+- **依赖关系：** `EthClient` 和 `GethClient` 都依赖 `RPC Client`，就像应用程序依赖操作系统，操作系统依赖硬件。
+- **选择原则：** 优先使用 `EthClient`（通用性强），只有在需要 Geth 特有功能时才使用 `GethClient`。
+
+**2. 为什么需要区分？**
+
+  * **通用性 vs 功能性**：如果你只需要查询余额、发送交易，用 `ethclient` 足够了。但如果你需要订阅更底层的**待处理交易详情**，或者访问 Geth 特有的 `txpool` 命名空间，你需要 `gethclient`。
+
+-----
+
+###### II. Subscribe (订阅模式)
+
+**背景知识：**
+
+  * **协议要求：** 订阅功能必须使用 **WebSocket (WSS)** 或 **IPC** 连接。HTTP 是无状态的，无法维持长连接推送数据。
+  * **编程模式：** Go 语言中主要通过 `channel` (通道) 来接收推送数据。
+
+**1. 监听新区块 (`Client.SubscribeNewHead`)**
+
+这是所有监控程序的“心跳”。每当网络中产生一个新区块，你的程序会立即收到通知。
+
+  * **方法来源：** `ethclient`
+  * **应用场景：**
+      * 更新本地数据库的区块高度。
+      * 触发新的合约状态检查（如 Chainlink Oracle 更新）。
+
+**2. 监听待处理交易 (`gethClient.SubscribePendingTransactions`)**
+
+这是 **MEV (最大可提取价值)** 和 **PVP (链上博弈)** 的核心。
+
+**方法来源：** `ethclient` 也有此方法，但 `gethclient` 提供了更贴合 Geth 节点特性的封装（在某些版本中返回的数据结构略有不同，或者支持特定的过滤）。通常我们指监听 Mempool 中的 Transaction Hash。
+
+**数据流：**
+
+1. **用户发送交易** → 交易被广播到以太坊网络
+2. **节点接收并验证** → 交易进入节点的 **Mempool (交易池)**
+3. **节点推送 Hash 给订阅者** → 你的程序通过 WebSocket 实时收到交易 Hash
+4. **矿工/Validator 打包** → 交易被选入区块并确认
+
+**为什么交易会进入 Mempool？**
+
+- **Mempool（Memory Pool）** 是每个以太坊节点维护的**待处理交易池**。
+- 当用户通过钱包或 DApp 发送交易时，交易首先被广播到网络中的节点。
+- 节点收到交易后会进行初步验证（签名、nonce、Gas 价格等），如果通过验证，就会将交易放入 Mempool 等待被打包。
+- Mempool 中的交易处于 **Pending（待处理）** 状态，还没有被确认。
+
+**为什么节点会推送 Hash 给订阅者？**
+
+- **实时性需求：** 许多应用（如 MEV Bot、套利机器人）需要在交易被打包前就获取信息，以便快速响应。
+- **订阅机制：** 通过 WebSocket 订阅，节点会在新交易进入 Mempool 时主动推送，而不是让客户端不断轮询。
+- **效率优势：** 推送模式比轮询更高效，减少了不必要的网络请求，同时能保证实时性。
+
+**注意：** 订阅通常只返回 **TxHash**。如果你想知道交易内容（比如是不是在买入某个 Token），你拿到 Hash 后需要立即调用 `TransactionByHash` 去查询详情。 
+
+-----
+
+###### III. 实战代码 (Code Practice)
+
+**1. 环境准备**
+  - 代理配置参考part1
+
+**环境配置：**
+
+- 初始化依赖：运行 `go mod tidy` 自动安装所需包
+- 如遇 Go 包安装问题（Windows），设置代理：`$env:GOPROXY="https://goproxy.cn,direct"`
+- 确保本地 Geth 节点正在运行
+- 运行代码：`go run monitor_setup.go`
+
+**2. 代码实现**
+
+完整的实现代码请参考：[monitor_setup.go](./monitor_setup.go)
+
+该代码展示了如何：
+
+1. **建立 WebSocket 连接：** 使用 `rpc.DialContext` 连接到本地 Geth 节点
+2. **复用 RPC 连接：** 同时初始化 `ethclient` 和 `gethclient`，共享同一个底层连接
+3. **双通道监听：** 使用 Go 的 `channel` 机制并发监听新区块和待处理交易
+4. **优雅退出：** 捕获系统信号（Ctrl+C），正确关闭订阅和连接
 
 
+**核心功能：**
+
+- **新区块监听：** 使用 `ethClient.SubscribeNewHead()` 实时获取新区块头信息
+- **交易池监听：** 使用 `gethClient.SubscribePendingTransactions()` 监听 Mempool 中的新交易
+- **错误处理：** 完善的错误处理和重连机制
+- **资源清理：** 程序退出时正确取消订阅并关闭连接
+
+**3. 运行与输出解释**
+
+**运行步骤：**
+
+1. **修改配置：** 在 [monitor_setup.go](./monitor_setup.go) 中替换 `NodeWSS` 为你的 WebSocket 地址
+2. **配置代理：** 根据你的代理软件修改 `PROXY_PORT` 常量（如不需要代理可设为空字符串）
+3. **运行代码：** `go run monitor_setup.go`
+4. **观察输出：** 程序会实时显示新区块和待处理交易
+5. **退出程序：** 按 `Ctrl+C` 优雅退出
+
+**预期输出：**
+
+```text
+2025/12/10 20:00:00 开始连接到本地 WebSocket 节点
+✅ 成功建立 RPC WebSocket 连接
+🎧 开始监听新区块 (NewHeads)...
+🎧 开始监听交易池 (Pending Transactions)...
+
+📡 监控已启动，按 Ctrl+C 退出...
+
+🌊 [Pending Tx] 0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef
+🌊 [Pending Tx] 0xabcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890
+... (大量的交易 Hash 涌入) ...
+
+📦 [New Block] Height: 19283001 | Hash: 0x789... | Time: 1709123456
+🌊 [Pending Tx] 0x456def789abc123456def789abc123456def789abc123456def789abc123456
+...
+```
+
+**输出解释：**
+
+| 输出内容 | 说明 |
+| :--- | :--- |
+| **✅ 成功建立 RPC WebSocket 连接** | WebSocket 连接已建立，可以开始订阅 |
+| **🎧 开始监听新区块** | 已订阅新区块事件，等待区块生成 |
+| **🎧 开始监听交易池** | 已订阅待处理交易事件，等待新交易进入 Mempool |
+| **🌊 [Pending Tx]** | 新交易进入 Mempool，显示交易 Hash |
+| **📦 [New Block]** | 新区块已生成，显示区块高度、哈希和时间戳 |
 
 
+#### Week 4 Part1-Geth-Part III: The Graph & GraphQL
+
+
+**回顾:**
+在 Part II 中，我们直接与 **Geth 节点** 对话，学会了监听实时的区块和交易。
+
+  * **痛点：** Geth 很强，但也很“笨”。如果你问 Geth：“请告诉我 Uniswap 上过去一年 ETH/USDC 的所有交易量总和”，Geth 会崩溃。因为它只是一个链表，没有根据业务逻辑建立索引。
+  
+  * **解决：** 我们需要一个 **中间件**，它能像“爬虫”一样通过 RPC 抓取链上数据，清洗、整理并存入数据库，供我们快速查询。这就是 **The Graph**。
+
+-----
+
+##### 数据的谷歌
+
+🎯 **目标:**
+
+1.  **理解架构：** 什么是 Subgraph，它是如何作为“Per Protocol”的数据聚合器的。
+2.  **掌握语法：** 学习 GraphQL 查询语言，摆脱 REST API 的束缚。
+3.  **实战演练：** 在 Graph Explorer 中调试查询，并编写 Go 语言脚本进行**高通量分页抓取**。
+
+###### 为什么需要 The Graph？
+
+**一句话总结：** Geth 是为了"验证"而设计的（写优化），The Graph 是为了"搜索"而设计的（读优化）。
+
+**1. 核心数据结构对比**
+
+| 特性 | Geth (Layer 1 节点) | The Graph (索引层) |
+| :--- | :--- | :--- |
+| **物理存储** | LevelDB (Key-Value 数据库) | PostgreSQL (关系型数据库) |
+| **逻辑结构** | 链表 (Linked List) + Merkle Patricia Trie (MPT) | 实体表 (Tables) (如 User 表, Swap 表) |
+| **索引方式** | 仅哈希索引 | B-Tree 索引 |
+| **查询能力** | 只能通过 Block Hash 或 Tx Hash 查找 | 可以为任意字段（User Address, Amount, Token Symbol）建立索引 |
+| **查询复杂度** | O(N) - 全表扫描 | O(log N) 或 O(1) - 索引查找 |
+
+**低效原因：** Geth 的数据是一条单向的时间轴。查找特定业务数据（如"Bob 的所有交易"）等同于在数据库中做全表扫描 (Full Table Scan)。
+
+**高效原因：** The Graph 将链上的线性数据重组成了结构化表格。查找特定业务数据等同于 SQL 查询中的索引查找。
+
+**比喻：**
+- **Geth** 是一卷录像带：你想找"男主角第一次出现"的画面，必须从头快进播放去找。
+- **The Graph** 是一本书的目录：你可以直接查"男主角"在哪一页，然后直接翻过去。
+
+###### I. The Graph 是什么？
+
+The Graph 是区块链数据的 **去中心化索引协议**。
+
+  * **Subgraph (子图):** 可以理解为每一个 DApp（如 Uniswap, Aave, Compound）都有一个专属的“数据库Schema”和“索引逻辑”，这被称为 Subgraph。
+  * **Per Protocol:** 它是以**协议为中心**的。你想查 Uniswap 的数据，就去 Uniswap 的 Subgraph；想查 ENS 的域名，就去 ENS 的 Subgraph。
+
+###### II. 交互式体验：Graph Explorer
+
+在写代码之前，我们需要先在网页上"玩"一下数据。
+
+**实操步骤 (请同学们跟随操作):**
+
+1. 打开 [The Graph Explorer (Arbitrum)](https://thegraph.com/explorer?chain=arbitrum-one)
+2. 在搜索框输入 `Uniswap V3` (或者 V2，视具体教程需求)
+3. 点击进入详情页，点击右侧的 **"Query"** 按钮
+4. 你会看到一个类似 IDE 的界面。这就是我们就地测试 GraphQL 的地方
+
+**快速链接：** 你也可以直接使用 [Uniswap V3 Subgraph (Substreams)](https://thegraph.com/explorer/subgraphs/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B?view=Query&chain=arbitrum-one)，这个可以直接查询，不需要自己搜索。
+
+###### III. GraphQL 语法速成
+
+GraphQL 是一种"按需索取"的查询语言。你需要什么字段，就写什么字段，不会多给，也不会少给。
+
+**1. 基础查询结构**
+
+以 Uniswap V3 为例，我们查询一下最近的 `Swaps` (交易事件)。
+
+**在 Graph Explorer 中测试：** [Uniswap V3 Subgraph (Substreams)](https://thegraph.com/explorer/subgraphs/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B?view=Query&chain=arbitrum-one)
+
+```graphql
+{
+  swaps(first: 5, orderBy: timestamp, orderDirection: desc) {
+    id
+    timestamp
+    token0 {
+      symbol
+    }
+    token1 {
+      symbol
+    }
+    amount0
+    amount1
+  }
+}
+```
+
+**语法说明：**
+
+- **`swaps`**: 实体名称 (Entity)
+- **`first: 5`**: 限制返回条数 (Limit)
+- **`orderBy: timestamp`**: 排序字段
+- **`orderDirection: desc`**: 排序方向（降序）
+- **`{ ... }`**: 这里面是你需要的字段。注意 `token0` 是一个嵌套对象，我们可以直接展开获取它的 `symbol`
+
+**2. 条件过滤 (Where)**
+
+查询 **USDC (假设地址为 0xff97...)** 相关的 Swap：
+
+```graphql
+{
+  swaps(
+    first: 5, 
+    where: { 
+      token0: "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8" 
+    }
+  ) {
+    id
+    amount0
+  }
+}
+```
+
+**语法说明：**
+
+- **`where`**: 条件过滤，支持多种比较操作符（如 `id_gt`, `amount_gte` 等）
+- **`token0: "0xff97..."`**: 精确匹配 token0 地址
+
+###### IV. 实战：用 Go 语言"搬运"数据
+
+**挑战背景：**
+
+你需要获取 Uniswap V3 上 **所有的** Pool 地址（成千上万个）。Graph 单次查询通常限制 `100` 或 `1000` 条数据。普通的 `skip` (跳过) 分页在数据量大时会极慢甚至报错。
+
+**Challenge ⚔️: 高通量 Pagination (分页) 策略**
+
+- **错误做法:** 使用 `skip: 1000`, `skip: 2000`... (性能极差，且 Graph 有最大 skip 限制)
+- **正确做法:** **Cursor-based Pagination (基于游标的分页)**
+  1. 按 `id` 排序
+  2. 记录最后一条数据的 `id`
+  3. 下一次查询使用 `where: { id_gt: "Last_ID" }` (id greater than)
+
+**为什么 Cursor-based 更快？**
+
+- **Skip 方式:** 数据库需要扫描前 N 条记录再跳过，复杂度为 O(N)
+- **Cursor 方式:** 利用主键索引直接定位，复杂度为 O(log N) 或 O(1)
+
+**代码实现**
+
+我们提供了三个版本的代码，帮助你深入理解分页策略：
+
+**1. 完整实现版本：** [graph_query.go](./graph_query.go)
+- 完整的 Cursor-based Pagination 实现
+- 包含详细的注释和性能统计
+- 适合直接运行和参考
+
+**2. 性能对比版本：** [graph_query_comparison.go](./graph_query_comparison.go)
+- 同时实现 Skip-based 和 Cursor-based 两种方式
+- 自动对比性能差异（耗时、请求次数）
+- **强烈推荐运行**，直观感受性能差异
+
+**3. 挑战版本：** [graph_query_challenge.go](./graph_query_challenge.go)
+- 代码填空练习，需要你完成关键部分
+- 包含 TODO 提示，引导你思考
+- 完成后可以对比完整实现，验证理解
+
+**核心知识点：**
+
+1. **定义数据结构：** 根据 GraphQL Schema 定义 Go 结构体
+2. **构造 GraphQL 查询：** 使用 Cursor-based 分页策略
+3. **发送 HTTP 请求：** 封装 GraphQL 查询为 JSON 请求
+4. **解析响应：** 将 JSON 响应解析为 Go 结构体
+5. **更新游标：** 记录最后一条数据的 ID，用于下一次查询
+6. **速率控制：** 添加延迟避免触发 API Rate Limit
+
+**前置条件：**
+
+1. **获取 API Key：**
+   - 访问 [The Graph Studio](https://thegraph.com/studio/) 获取一个 API Key
+   - 或者使用公开的测试网 URL（代码中已配置）
+
+2. **配置代理（中国大陆用户）：**
+   - 参考 part1  
+
+**实战任务：**
+
+**步骤 1：验证 Subgraph 连接**
+```bash
+go run graph_query.go
+```
+代码会自动进行测试查询，验证 Subgraph 是否可用。
+
+**如果遇到返回 0 条数据的问题：**
+
+1. **检查实体名称：** 在 [Graph Explorer](https://thegraph.com/explorer/subgraphs/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B?view=Query&chain=arbitrum-one) 中查看 Schema，确认正确的实体名称
+   - 可能是 `pool` 而不是 `pools`
+   - 可能是 `pair` 或其他名称
+
+2. **检查查询语法：** 在 Graph Explorer 中手动测试查询，确保语法正确
+
+3. **启用调试模式：** 在代码中将 `DEBUG_MODE = true`，查看实际查询和响应
+
+**步骤 2：运行性能对比（推荐）**
+```bash
+go run graph_query_comparison.go
+```
+观察两种方式的性能差异，理解为什么 Cursor-based 更快。
+
+**步骤 3：完成挑战版本**
+1. 打开 [graph_query_challenge.go](./graph_query_challenge.go)
+2. 根据 TODO 提示完成代码填空
+3. 运行验证是否正确
+
+**常见问题排查：**
+
+**Q: 为什么返回 0 条数据？**
+
+可能的原因：
+1. **Subgraph 数据问题：** Subgraph 可能没有数据，或者数据被过滤掉了
+2. **实体名称错误：** 可能不是 `pools`，而是 `pool`、`pair` 或其他名称
+3. **查询语法问题：** 某些 Subgraph 可能需要特定的查询格式
+
+**解决方法：**
+1. 在 [Graph Explorer](https://thegraph.com/explorer/subgraphs/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B?view=Query&chain=arbitrum-one) 中手动测试查询
+2. 查看 Schema 文档，确认正确的实体名称和字段
+3. 启用调试模式（`DEBUG_MODE = true`）查看实际查询和响应
+4. 检查 GraphQL 错误信息（代码已自动打印）
+
+**Q: 为什么会出现不稳定的 GraphQL 错误？**
+
+**核心原因：The Graph 的去中心化架构**
+
+The Graph 使用**去中心化索引网络**，你的查询会被路由到多个**索引器（Indexers）**：
+
+```
+你的查询 → The Graph Gateway → 多个索引器（Indexer 1, 2, 3...）
+                                    ↓
+                            每个索引器独立运行数据库
+```
+
+**为什么会出现错误？**
+
+1. **索引器性能差异：** 不同的索引器可能有不同的硬件配置和负载
+2. **查询复杂度：** 当查询大量数据时，某些索引器可能超时
+3. **数据库负载：** 索引器的数据库可能正在处理其他查询，导致响应慢
+4. **网络问题：** 索引器之间的网络连接可能不稳定
+
+**错误示例：**
+```
+bad indexers: {
+  0x2f09...: Timeout,
+  0x32bb...: BadResponse(400),
+  0xedca...: statement timeout
+}
+```
+
+这表示：3 个索引器都失败了（超时或错误），但这是**正常现象**！
+
+**解决方案：**
+
+代码已自动实现**重试机制**：
+- 检测到超时或索引器错误时，自动重试（最多 3 次）
+- 每次重试间隔 2 秒，给索引器恢复时间
+- 如果所有重试都失败，才会报错退出
+
+**最佳实践：**
+- ✅ 使用重试机制（代码已实现）
+- ✅ 降低单次查询的数据量（如 `first: 500` 而非 `first: 1000`）
+- ✅ 增加请求间隔（代码中已设置 100ms）
+- ❌ 不要因为偶尔的错误就认为代码有问题
+
+**Q: 为什么性能对比不明显？**
+
+可能的原因：
+1. **数据量太小：** 如果只查询少量数据，性能差异不明显
+2. **网络延迟占主导：** 代理延迟可能掩盖了数据库查询的差异
+3. **Subgraph 优化：** 某些 Subgraph 可能对 Skip 做了优化
+
+**解决方法：**
+- 尝试查询更多数据（修改 `MAX_POOLS_TO_FETCH`）
+- 使用本地节点或更快的网络环境
+- 关注请求次数和平均耗时，而非总耗时
+
+
+**收获:**
+1. **为什么 Cursor-based 比 Skip-based 更快？**
+   - Skip 方式：数据库需要扫描前 N 条记录再跳过，复杂度为 O(N)
+   - Cursor 方式：利用主键索引直接定位，复杂度为 O(log N) 或 O(1)
+   - **实际场景：** 当 skip=10000 时，数据库需要扫描前 10000 条记录；而 cursor 方式直接定位到游标位置
+
+2. **什么时候应该使用 Cursor-based？**
+   - 需要获取大量数据时（> 1000 条）
+   - 数据会实时更新，需要稳定的分页策略
+   - 对性能有要求的场景
+
+3. **Cursor-based 的限制是什么？**
+   - 必须有一个可排序的唯一字段（通常是 id）
+   - 数据必须按该字段排序
+   - 不能随机跳转到任意位置
 
 
 <!-- Content_END -->
