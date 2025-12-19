@@ -274,5 +274,67 @@ func (rl *RateLimiter) Wait() {
 Geth 适合验证和实时监控，但不适合复杂的历史查询。比如想查"Uniswap 过去一年的交易量"，用 Geth 要扫全表，效率很低。The Graph 就是解决这个问题的——它把链上数据同步下来建好索引存进数据库，用 GraphQL 查询非常方便。分页时要注意用 Cursor-based 而不是 Skip-based，前者用 `where: { id_gt: "lastID" }` 直接定位是 O(log N)，后者用 `skip: 1000` 要扫描前 1000 条是 O(N)，数据量大时性能差距明显。
 
 
+### 2025.12.19
+
+#### Week4 Etherscan API 实践
+
+今天完成了 Week4 Part2 的代码调试和运行。主要任务是用 Go 调用 Etherscan API 统计 7-11 月收到 Token 的所有地址。遇到的关键问题是 Etherscan 免费版 API 对同一查询条件最多只返回 10,000 条数据，这不是分页的问题——即使分 100 页查询，API 也只给前 10,000 条。添加了检测逻辑避免无意义的重复请求：
+
+```go
+maxResults := 10000 // Etherscan 免费版 API 最大返回条数限制
+
+for {
+    txList, err := getTokenTxPage(client, address, startBlock, endBlock, page, offset)
+    allTx = append(allTx, txList...)
+
+    // 检查是否达到 API 限制
+    if len(allTx) >= maxResults {
+        log.Printf("⚠️ 已达到 Etherscan 免费版 API 限制 (10,000 条)，停止查询")
+        break
+    }
+}
+```
+
+
+对比了三种链上数据获取方式的使用场景。Geth/Infura 通过 FilterLogs 查询原始日志数据，需要分页处理大范围区块：
+
+```go
+// Geth FilterLogs 查询（每次查 1000 个区块）
+query := ethereum.FilterQuery{
+    FromBlock: big.NewInt(startBlock),
+    ToBlock:   big.NewInt(endBlock),
+    Addresses: []common.Address{contractAddr},
+    Topics:    [][]common.Hash{{eventSigHash}},
+}
+logs, _ := client.FilterLogs(ctx, query)
+```
+
+The Graph 使用 GraphQL 查询预处理的索引数据，支持嵌套查询和精确字段选择：
+
+```go
+// The Graph GraphQL 查询（一次获取 500 条）
+query := `{
+    pools(first: 500, orderBy: id, orderDirection: asc) {
+        id
+        feeTier
+        token0 { symbol }
+        token1 { symbol }
+    }
+}`
+```
+
+The Graph 分页时用 Cursor-based（`where: {id_gt: "lastID"}`）比 Skip-based 效率高，因为数据库索引可以直接定位而不需要扫描前面的记录。三者结合使用才能应对不同的数据分析需求：Geth 适合实时监控和验证，The Graph 适合历史数据分析，Etherscan API 最方便但有免费版限制。
+
+```go
+// RateLimiter 动态计算等待时间
+func (rl *RateLimiter) Wait() {
+    elapsed := time.Since(rl.lastRequestTime)
+    if elapsed < rl.interval {
+        time.Sleep(rl.interval - elapsed)  // 只等待剩余时间
+    }
+    rl.lastRequestTime = time.Now()
+}
+```
+
 
 <!-- Content_END -->
