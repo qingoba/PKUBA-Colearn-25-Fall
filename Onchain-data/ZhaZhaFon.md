@@ -41,4 +41,7 @@ Feng_999
 昨天用Binance往资金池加了50U。
 今天跟随文档完成了Week3作业，入门Golang并学习Ethereum数据结构。
 
+### 2025.12.14周日
+阅读1-geth.md，学习理解Part1作业。
+
 <!-- Content_END -->

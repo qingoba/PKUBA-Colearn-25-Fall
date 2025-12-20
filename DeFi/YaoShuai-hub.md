@@ -35,4 +35,12 @@ timezone: UTC+8
 ### 2025.12.07
 学习B站肖臻老师的区块链课程ETH部分
 
+### 2025.12.14
+- [x] 安装go:<img width="842" height="178" alt="image" src="https://github.com/user-attachments/assets/49c82262-9165-4f9a-aa20-a8391b180d46" />
+
+### 2025.12.15
+- [x] week3 Part III <img width="1232" height="956" alt="image" src="https://github.com/user-attachments/assets/2ca74fc7-a590-4f80-b50b-69f40c21cf1e" />
+- [ ] week4
+
+
 <!-- Content_END -->
