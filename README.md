@@ -113,7 +113,7 @@
 | [Onchain-data/RenJW418](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418.md) | ✅ | ✅ | ✅ | ✅ |   | | | |
 | [Onchain-data/Ariaboopboop](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Ariaboopboop.md) | ✅ | ⭕️ | ✅ | ⭕️ |   | | | |
 | [Onchain-data/munger999](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/munger999.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ |   | | | |
-| [Onchain-data/ZhaZhaFon](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ZhaZhaFon.md) | ✅ | ✅ | ✅ | ✅ |   | | | |
+| [Onchain-data/ZhaZhaFon](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ZhaZhaFon.md) | ✅ | ✅ | ✅ | ✅ | ✅ | | | |
 | [Onchain-data/Jiaosifang](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Jiaosifang.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ |   | | | |
 | [DeFi/billyoftea](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/billyoftea.md) | ✅ | ✅ | ✅ | ✅ | ✅ | | | |
 | [Onchain-data/Turing7777](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Turing7777.md) | ✅ | ⭕️ | ⭕️ | ⭕️ |   | | | |
@@ -128,6 +128,7 @@
 | [Onchain-data/0xinsternet](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/0xinsternet.md) | ⭕️ | ⭕️ | ✅ | ✅ |   | | | |
 | [Onchain-data/LuBryant/LuBryant](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/LuBryant/LuBryant.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
