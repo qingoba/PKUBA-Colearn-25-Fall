@@ -44,4 +44,8 @@ Feng_999
 ### 2025.12.14周日
 阅读1-geth.md，学习理解Part1作业。
 
+### 2025.12.21周日
+阅读1-geth.md、2-live-monitoring.md、3-the-graph-graphql.md三个作业，并调试运行对应的例程。
+对Ethereum历史数据查询和日志过滤、订阅模式数据监控、TheGraph有了初步理解。
+
 <!-- Content_END -->

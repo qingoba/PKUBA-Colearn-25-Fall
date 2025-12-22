@@ -128,10 +128,33 @@ logs：合约在执行过程中“对外广播的事件” （Address：合约�
 contractAddress：这笔交易是否创建了新的合约。  
 发起时：to == nil（没有目标地址）     
 执行成功后：EVM 会把新合约的地址写进 receipt.ContractAddress     
-普通转账或者调用已经存在的合约则为零地址。   
+普通转账或者调用已经存在的合约则为零地址。  
 
+### 2025.12.12
+1-geth     
+<img width="1097" height="230" alt="image" src="https://github.com/user-attachments/assets/95452d06-690a-4c70-af25-d6b3dfe9e4d7" />        
+<img width="1102" height="454" alt="image" src="https://github.com/user-attachments/assets/2fa15058-73df-4418-bbfa-320112fa1bec" />       
+<img width="1005" height="570" alt="image" src="https://github.com/user-attachments/assets/864b618c-5ad1-4496-a9c4-56f156441e50" />    
 
+2-monitor
+<img width="551" height="550" alt="image" src="https://github.com/user-attachments/assets/9582cb63-754c-4331-b925-cd062f2a536d" />     
 
+<img width="530" height="681" alt="image" src="https://github.com/user-attachments/assets/fd8ad213-71e4-4388-8fd2-5d7c3541365a" />     
+
+3-graph
+ <img width="1393" height="738" alt="image" src="https://github.com/user-attachments/assets/4913ead1-ca05-44c9-81cf-4a845df7a957" />      
+
+<img width="1314" height="562" alt="image" src="https://github.com/user-attachments/assets/1979cfc1-82b0-4472-8745-f649a9b6ae32" />   
+
+4-实战     
+<img width="815" height="745" alt="image" src="https://github.com/user-attachments/assets/4bb518e9-37fb-481f-9fa2-31cbc77b8cc0" />     
+<img width="658" height="595" alt="image" src="https://github.com/user-attachments/assets/b0f27378-9624-493d-86f1-02b24a957c7a" />      
+<img width="674" height="741" alt="image" src="https://github.com/user-attachments/assets/053c5955-dbe3-4187-9a80-eb5809d3478d" />   
+<img width="800" height="429" alt="image" src="https://github.com/user-attachments/assets/24cb4900-5b0d-46c4-8d7a-7d09b76823a7" />
+
+### 2025.12.20
+etherscan     
+<img width="779" height="540" alt="image" src="https://github.com/user-attachments/assets/a51372ed-bb02-43bb-8e96-04e96e220d34" />
 
 
 <!-- Content_END -->

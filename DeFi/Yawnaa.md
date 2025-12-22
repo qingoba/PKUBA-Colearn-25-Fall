@@ -104,5 +104,13 @@ Follow-Up：
    - transaction
    - receipt
 2. 了解EVM log三个核心内容、Event Signature
+### 2025.12.21
+
+跑通：通过合约地址和 Event Signature 过滤日志的完整实
+
+1. **代理配置：** 配置 HTTP 代理以访问 Infura RPC 服务
+2. **RPC 连接：** 使用自定义 HTTP 客户端连接到以太坊节点
+3. **事件签名计算：** 计算 `Transfer(address,address,uint256)` 事件的签名哈希（Topic 0）
+4. **日志过滤：** 使用 `FilterLogs` 方法查询指定合约地址和事件签名的历史日志
 
 <!-- Content_END -->
