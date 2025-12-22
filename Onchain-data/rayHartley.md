@@ -38,4 +38,10 @@ timezone: UTC+8
 1. txlist
    <img width="923" height="352" alt="image" src="https://github.com/user-attachments/assets/c4a2fb01-60b8-445a-a778-11d888589e18" />
 
+### 2025.12.20
+
+#### week4 Etherscan
+
+<img width="962" height="391" alt="image" src="https://github.com/user-attachments/assets/3f8e0ba4-2786-4146-81ca-f90b822540ce" />
+
 <!-- Content_END -->
