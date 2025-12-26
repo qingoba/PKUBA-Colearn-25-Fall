@@ -152,6 +152,9 @@ contractAddress：这笔交易是否创建了新的合约。
 <img width="674" height="741" alt="image" src="https://github.com/user-attachments/assets/053c5955-dbe3-4187-9a80-eb5809d3478d" />   
 <img width="800" height="429" alt="image" src="https://github.com/user-attachments/assets/24cb4900-5b0d-46c4-8d7a-7d09b76823a7" />
 
+### 2025.12.20
+etherscan     
+<img width="779" height="540" alt="image" src="https://github.com/user-attachments/assets/a51372ed-bb02-43bb-8e96-04e96e220d34" />
 
 
 <!-- Content_END -->

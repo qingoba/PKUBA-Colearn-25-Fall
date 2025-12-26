@@ -32,6 +32,9 @@ Solver Contract: 0xa98043afd36bc184285951765c2833aacdcf014c
 TX: 0x4aa36b17b6bb0123719733e37268e2a40e84e1a35b2a1ccce20641ee662b06ce
 ### 2025.12.07
 本周学习了安装go客户端，安装go-ethereum库，并使用其读取链上数据
-
+### 2025.12.14
+本周学习了通过go进行日志过滤、查询以太坊数据，学习了监听，GraphQL。
+### 2025.12.21
+注册并调用了Etherscan API。
 
 <!-- Content_END -->

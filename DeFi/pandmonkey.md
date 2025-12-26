@@ -162,4 +162,22 @@ public:
 	- Subgraph: 每个 DApp 的专属数据库 Schema
 	- 使用 GraphQL 查询, 支持 Cursor-based Pagination(比 Skip 方式快)
 
+### 2025.12.22
+
+- **RPC 的局限性:**
+	- RPC 是执行层接口, 适合查询链上"状态", 不适合数据分析
+	- 复杂查询需要扫所有区块和交易, 非常慢
+	- 无法直接查询"哪些地址调用过某合约"或"内部 ETH 转账"
+
+- **Etherscan:**
+	- 中心化系统, 提前整理和索引链上数据
+	- 将链上数据构建为可直接查询的数据表
+	- 提供 HTTP API, 需要注册获取 API Key
+
+- **txlist vs txlistinternal:**
+	- `txlist`: 查询普通外部交易列表, 只显示顶层交易
+	- `txlistinternal`: 查询内部交易, 记录合约执行过程中的 ETH 转移
+	- 内部交易: 通过 CALL opcode 发送 ETH, 不直接出现在交易顶层结构
+	- 应用: 查询 DEX Router 内部调用、合约退款等场景
+
 <!-- Content_END -->
