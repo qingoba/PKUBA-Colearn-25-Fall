@@ -324,7 +324,7 @@ query := `{
 ```
 
 The Graph 分页时用 Cursor-based（`where: {id_gt: "lastID"}`）比 Skip-based 效率高，因为数据库索引可以直接定位而不需要扫描前面的记录。三者结合使用才能应对不同的数据分析需求：Geth 适合实时监控和验证，The Graph 适合历史数据分析，Etherscan API 最方便但有免费版限制。
-
+s
 ```go
 // RateLimiter 动态计算等待时间
 func (rl *RateLimiter) Wait() {
@@ -336,5 +336,55 @@ func (rl *RateLimiter) Wait() {
 }
 ```
 
+### 2025.12.28
+
+#### Week6 链上监控 + Telegram 实战
+这一周把实时监控和 Telegram 通知串起来，整体流程是：先在环境里配置必填变量 `ETH_WS_RPC`（必须 `wss://`，否则订阅会报 “notifications not supported”）、`TELEGRAM_TOKEN`、`TELEGRAM_CHAT_ID=7389815564`，可选再调 `MIN_USD`、`EXPLORER_BASE` 和交易对符号/精度。排错经历：最初把 RPC 写成 `https://...` 直接导致订阅失败，改回 `wss://mainnet.infura.io/ws/v3/165428418f2946c883eee72f2a351ae0` 后恢复；阈值设 100 USDC 时，终端连续输出 “swap below threshold: XXX USDC (tx …)” 说明监听与解析都正常，只是金额没过阈值，若想快速看到推送就把 `MIN_USD` 再降一些。本次成功触发的示例（已收到 Telegram 推送，并截图）
+![Week6 Telegram Alert](./md_assets/odsbaron/week6-alert.png)
+
+关键代码摘录，首先加载并校验环境变量，缺失时直接报错退出：
+```go
+func loadConfigFromEnv() (monitorConfig, error) {
+    cfg := monitorConfig{
+        WSRPC: strings.TrimSpace(os.Getenv("ETH_WS_RPC")),
+        PairAddress: common.HexToAddress(envOrDefault("PAIR_ADDRESS", defaultPairAddress)),
+        MinUSD: defaultMinUSD,
+    }
+    if cfg.WSRPC == "" {
+        return cfg, fmt.Errorf("missing ETH_WS_RPC (websocket endpoint required for subscriptions)")
+    }
+    if cfg.MinUSD, err = parseFloatEnv("MIN_USD", defaultMinUSD); err != nil {
+        return cfg, err
+    }
+    return cfg, nil
+}
+```
+然后用 websocket 订阅 Swap 日志，解析后按阈值过滤并推送到 Telegram：
+```go
+sub, err := client.SubscribeFilterLogs(ctx, query, logsCh)
+...
+case lg := <-logsCh:
+    swap, err := parseSwapLog(lg)
+    msg, usdValue := formatSwapMessage(swap, cfg)
+    if msg == "" { /* below threshold */ continue }
+    if err := bot.SendText(msg); err != nil {
+        log.Printf("telegram send failed: %v", err)
+    }
+```
+阈值过滤逻辑（未达标直接返回空消息）：
+```go
+if cfg.MinUSD > 0 && usdValue < cfg.MinUSD {
+    return "", usdValue
+}
+```
+推送内容包含方向、金额、Tx 链接、区块信息：
+```go
+msg := fmt.Sprintf(
+    "%s swap >= %.0f %s\nDirection: %s\nValue: %s\nTx: %s\nSender: %s\nTo: %s\nBlock: %d (log %d)",
+    cfg.PairName, cfg.MinUSD, cfg.Token0Symbol,
+    direction, valueLine, txURL, s.Sender.Hex(), s.To.Hex(), s.BlockNumber, s.LogIndex,
+)
+```
+运行时保持终端开启即可持续监听，调低 `MIN_USD` 能更快看到 Telegram 推送。
 
 <!-- Content_END -->
