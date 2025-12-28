@@ -113,4 +113,10 @@ Follow-Up：
 3. **事件签名计算：** 计算 `Transfer(address,address,uint256)` 事件的签名哈希（Topic 0）
 4. **日志过滤：** 使用 `FilterLogs` 方法查询指定合约地址和事件签名的历史日志
 
+### 2025.12.28
+
+ - 阅读 telegram setup doc 配置机器人
+ - 配置完毕, 运行 telegram.go
+ - Live Monitor 监测链上事件.
+
 <!-- Content_END -->
