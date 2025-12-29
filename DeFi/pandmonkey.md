@@ -180,4 +180,33 @@ public:
 	- 内部交易: 通过 CALL opcode 发送 ETH, 不直接出现在交易顶层结构
 	- 应用: 查询 DEX Router 内部调用、合约退款等场景
 
+### 2025.12.29
+
+- **Uniswap V2 核心机制:**
+	- 恒定乘积公式: `x * y = k` (x, y 为池中两种代币数量, k 为常数)
+	- 价格由池中代币比例决定, 交易会改变比例从而改变价格
+	- Pair 合约: 管理流动性池, 执行 swap、mint、burn 操作
+	- Router 合约: 用户接口, 处理路径选择、滑点保护、交易原子性
+
+- **swap 函数:**
+	- 根据输入代币数量计算输出: `amountOut = (amountIn * reserveOut) / (reserveIn + amountIn)`
+	- `_update` 函数更新储备量和累积价格(用于 TWAP 预言机)
+	- 通过检查 `k` 值不变来防止滑点攻击
+
+- **Router 与 Pair 配合:**
+	- 用户调用 Router 的 `swapExactTokensForTokens`
+	- Router 确定交易路径(可能多跳), 依次调用各个 Pair
+	- 使用 `transferFrom` 和 `safeTransfer` 保证原子性(全部成功或全部失败)
+	- `amountOutMin` 参数提供滑点保护
+
+- **流动性管理:**
+	- `mint`: 添加流动性时计算 LP Token = sqrt(x * y) - totalSupply
+	- `burn`: 移除流动性时按比例返还两种代币
+	- 首次添加流动性时 LP Token = sqrt(x * y)
+
+- **价格预言机:**
+	- `price0CumulativeLast` 和 `price1CumulativeLast`: 累积价格, 用于计算 TWAP
+	- TWAP = (priceCumulative[t2] - priceCumulative[t1]) / (t2 - t1)
+	- 可防止价格操纵攻击
+
 <!-- Content_END -->
