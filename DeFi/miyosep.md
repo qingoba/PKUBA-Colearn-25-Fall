@@ -7,7 +7,7 @@ timezone: UTC+8
 
 # 你的名字
 
-1. 自我介绍:我是元培学院数学方向的金柱衡，这次新加入了技术部，平时对密码学感兴趣。我报名Defi合约组
+1. 自我介绍:我是元培学院的金柱衡，这次新加入了技术部，平时对密码学感兴趣。报名Defi合约组
 2. 你认为你会完成这次共学小组吗？:会，可以完成。
 3. 你的联系方式（Wechat or Telegram）:  wechat:Juhyeongkim5627; telegram:miyomiyo789
 4. 交易哈希：0x7757209b220ad863ade4688cc3bdbe08dc24c78799ee7991bf8d7a085ca81ddf
@@ -67,6 +67,24 @@ RPC 服务商限制请求速率（RPS），请求过快会触发 HTTP 429。
 3. 事件过滤与 Bloom Filter
 通过 FilterQuery 指定合约地址和事件签名（Topic0），节点可利用Bloom Filter快速筛选相关区块。
 减少无关日志扫描，高效获取特定事件（如 Swap、Transfer）。
+
+### 2025.12.29
+Week 7
+
+- Pair 持币、定价、结算
+- Router 只是批量调用器
+- 定价规则是 x · y = k
+
+swap：
+-用户算 output
+-Pair 只验证恒定乘积
+
+_update：
+-更新 reserve
+-累计价格用于 TWAP
+
+套利
+-flash swap 是核心工具
 
 
 

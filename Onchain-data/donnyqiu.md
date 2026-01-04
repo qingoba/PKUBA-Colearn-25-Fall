@@ -74,4 +74,20 @@ TG: @ccaaiw
 3.  **检索算法复杂度与游标机制**
     **基于游标 (Cursor-based)** 分页的核心优势——利用唯一索引定位实现 $O(1)$ 或 $O(\log N)$ 的恒定时间复杂度检索。
 
+### 2025.12.27
+1.  **从节点获取转发到telegram bot**
+    从ETH节点获取区块数据并推送到BotFather对应的chat中，使得监控信息能够在TG中及时收到
+
+2.  **异步并发与非阻塞通知**
+    利用 Go **Goroutine** 将高延迟的 Telegram API 请求与高频的链上数据流隔离。确保外部通知服务的网络抖动不会阻塞核心监控链路，维持系统的**高吞吐量**。
+
+<img width="504" height="419" alt="屏幕截图 2025-12-27 155858" src="https://github.com/user-attachments/assets/a489e2b9-5f18-4b34-9a59-e12d9c5cfadb" />
+
+### 2026.01.03
+1.  **精准 Topics 订阅**
+    为了减少不必要的网络开销，不再订阅全节点的所有日志。通过配置 WebSocket 的 FilterQuery，利用 Topics（事件签名哈希）进行过滤。
+
+2.  **WebSocket 断线重连与心跳保活**
+    针对长时间运行可能出现的 WS 连接中断问题，设计重连机制。引入 Context 上下文控制和心跳包，一旦检测到连接断开，自动重新建立连接并恢复订阅。
+
 <!-- Content_END -->

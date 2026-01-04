@@ -48,4 +48,7 @@ Feng_999
 阅读1-geth.md、2-live-monitoring.md、3-the-graph-graphql.md三个作业，并调试运行对应的例程。
 对Ethereum历史数据查询和日志过滤、订阅模式数据监控、TheGraph有了初步理解。
 
+### 2025.12.28周日
+学习Part2-Etherscan
+
 <!-- Content_END -->

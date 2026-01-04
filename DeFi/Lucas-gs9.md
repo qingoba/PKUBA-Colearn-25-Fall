@@ -100,6 +100,12 @@ Topics: [0xd78ad95fa46c994b6551d0da85fc275fe613ce37657fb8d5e3d130840159d822 0x00
 {"blockNumber":"23974499","blockHash":"0xbaabc8efcc9fded2cffbf86adedde0bed6afe12ece63c9610e7c1a257b298427","timeStamp":"1765274591","hash":"0x7303729a35c16b76fdca36ca3fca9808f13e48dd84fcf74bc1fb2fd1610d9587","nonce":"183","transactionIndex":"172","from":"0xa415e5ddf7f3411cd80d1199f2eb01d1f4978f6f","to":"0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc","value":"0","gas":"26829","gasPrice":"243484710","input":"0x095ea7b30000000000000000000000007a250d5630b4cf539739df2c5dacb4c659f2488dffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","methodId":"0x095ea7b3","functionName":"approve(address _spender, uint256 _value)","contractAddress":"","cumulativeGasUsed":"17501803","txreceipt_status":"1","gasUsed":"26486","confirmations":"87096","isError":"0"}  
 ......
 
+### 2025.12.28  
+swap函数首先检查希望给出的代币数量是否至少有一个大于0，并且现有储备大于这个数量，那么向to转账amountOut。如何data字节长度不为0，执行回调合约，然后读取当前余额balance，并计算放入的代币量amountIn，如果没有放入代币，则交易错误。扣除放入的手续费amountIn*0.003，由于手续费的原因需要保证x'*y'>=xy。  
+使用xy=k保证极简，任何量级都可以直接成交，价格沿着双曲线滑动。  
+update更新了链上reserve为当前真实余额。  
+
+
 ### 2025.07.12
 
 <!-- Content_END -->
