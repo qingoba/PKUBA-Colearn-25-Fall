@@ -387,4 +387,66 @@ msg := fmt.Sprintf(
 ```
 运行时保持终端开启即可持续监听，调低 `MIN_USD` 能更快看到 Telegram 推送。
 
+
+
+### 2026.01.04
+
+#### Uniswap V2 Pair 合约核心机制
+
+本周精读 UniswapV2Pair.sol 源码，理解了恒定乘积做市商（CPMM）的实现。
+
+---
+
+**核心公式**：`x * y = k`，扣除 0.3% 手续费后 K 只增不减。
+
+---
+
+##### swap 函数流程
+
+1. 先转出 `amountOut` 给用户（乐观转账）
+2. 如果有 `data`，回调用户合约（闪电贷入口）
+3. 计算实际转入的 `amountIn` = 新余额 - (原余额 - amountOut)
+4. K 值检查：`(balance0*1000 - amount0In*3) * (balance1*1000 - amount1In*3) >= k * 1000²`
+5. 更新储备量和价格累积（TWAP）
+
+关键点：手续费不是直接扣，而是在 K 值检查时用 `*1000 - *3` 实现，手续费自动留在池子里。
+
+---
+
+##### mint / burn 流动性
+
+**首次添加**：`liquidity = sqrt(amount0 * amount1) - 1000`（1000 LP 永久锁定防止归零）
+
+**后续添加**：按较小比例计算 `min(amount0 * totalSupply / reserve0, ...)` 防止操纵
+
+**移除**：按 LP 占比返还代币，`amount0 = liquidity * balance0 / totalSupply`
+
+---
+
+##### 闪电贷机制
+
+`swap` 的 `data` 参数非空时，先转出代币 → 调用 `uniswapV2Call` → 用户执行逻辑 → 归还代币 → K 值检查。失败则整个交易回滚，无需抵押。
+
+---
+
+##### lock 修饰符
+
+```solidity
+uint unlocked = 1;
+modifier lock() {
+    require(unlocked == 1);
+    unlocked = 0; _; unlocked = 1;  // 防重入
+}
+```
+
+---
+
+##### 价格累积（TWAP）
+
+每次交易时 `priceCumulative += (reserve1/reserve0) * timeElapsed`，这是价格对时间的积分。单点价格可被闪电贷操纵，但 TWAP 需要长时间持续攻击才有效。
+
+---
+
+参考：Uniswap V2 白皮书 + v2-core 源码
+
 <!-- Content_END -->
