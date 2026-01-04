@@ -38,6 +38,6 @@ TX: 0x4aa36b17b6bb0123719733e37268e2a40e84e1a35b2a1ccce20641ee662b06ce
 注册并调用了Etherscan API。
 ### 2025.12.28
 继续消化之前几周内容。
-### 2025.1.4
+### 2026.1.4
 学习创建telegram机器人。
 <!-- Content_END -->
