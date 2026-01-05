@@ -44,5 +44,7 @@ timezone: UTC+8
 - [X] week4 Part I
   - [ ] <img width="1660" height="454" alt="image" src="https://github.com/user-attachments/assets/4ed4f177-6b13-4a2e-83b9-f881bfb3d673" />
   - [ ] try log_filter_big.go <img width="1884" height="1056" alt="image" src="https://github.com/user-attachments/assets/f409d760-09aa-41df-86ae-41a186bb178d" />
+### 2026.1.4
+- [ ] week4 Part II
 
 <!-- Content_END -->
