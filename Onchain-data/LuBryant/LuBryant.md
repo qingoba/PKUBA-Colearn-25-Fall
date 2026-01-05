@@ -2471,4 +2471,9 @@ export TELEGRAM_CHAT_ID="your_chat_id"
 
 **注意：** 本周不需要部署池子或进行实际交易，重点是理解源代码和机制。下周我们将基于这些理解进行套利实践。
 
+### 2026.01.05
+
+看视频学习
+structured intro to how Bitcoin works and how to reason about claims; available via Princeton’s course page and broadly via online versions. [Bitcoin and Cryptocurrency Technologies](https://online.princeton.edu/bitcoin-and-cryptocurrency-technologies?utm_source=chatgpt.com)
+
 <!-- Content_END -->
