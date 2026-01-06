@@ -113,7 +113,7 @@ def extract_content_between_markers(file_content):
     return file_content[start_index + len(Content_START_MARKER):end_index].strip()
 
 def find_date_in_content(content, local_date):
-    # Helper function to remove leading zeros from month and day
+    # Helper function to remove leading zeros from month and day and escape dots for regex
     def remove_leading_zeros(date_str):
         parts = date_str.split('.')
         if len(parts) == 3:
@@ -121,23 +121,27 @@ def find_date_in_content(content, local_date):
             year, month, day = parts
             month = str(int(month))  # Remove leading zero
             day = str(int(day))  # Remove leading zero
-            return f"{year}.{month}.{day}"
-        return date_str
+            return f"{year}\\.{month}\\.{day}"  # Escape dots for regex
+        return date_str.replace('.', '\\.')  # Escape dots for regex
+    
+    # Helper function to escape dots in date string for regex
+    def escape_dots(date_str):
+        return date_str.replace('.', '\\.')
     
     date_patterns = [
-        r'#\s*' + local_date.strftime("%Y.%m.%d"),
-        r'##\s*' + local_date.strftime("%Y.%m.%d"),
-        r'###\s*' + local_date.strftime("%Y.%m.%d"),
-        r'#\s*' + local_date.strftime("%Y.%m.%d").replace('.0', '.'),
-        r'##\s*' + local_date.strftime("%Y.%m.%d").replace('.0', '.'),
-        r'###\s*' + local_date.strftime("%Y.%m.%d").replace('.0', '.'),
+        r'#\s*' + escape_dots(local_date.strftime("%Y.%m.%d")),
+        r'##\s*' + escape_dots(local_date.strftime("%Y.%m.%d")),
+        r'###\s*' + escape_dots(local_date.strftime("%Y.%m.%d")),
+        r'#\s*' + escape_dots(local_date.strftime("%Y.%m.%d").replace('.0', '.')),
+        r'##\s*' + escape_dots(local_date.strftime("%Y.%m.%d").replace('.0', '.')),
+        r'###\s*' + escape_dots(local_date.strftime("%Y.%m.%d").replace('.0', '.')),
         # Add pattern for format like 2025.1.5 (both month and day without leading zeros)
         r'#\s*' + remove_leading_zeros(local_date.strftime("%Y.%m.%d")),
         r'##\s*' + remove_leading_zeros(local_date.strftime("%Y.%m.%d")),
         r'###\s*' + remove_leading_zeros(local_date.strftime("%Y.%m.%d")),
-        r'#\s*' + local_date.strftime("%m.%d").lstrip('0').replace('.0', '.'),
-        r'##\s*' + local_date.strftime("%m.%d").lstrip('0').replace('.0', '.'),
-        r'###\s*' + local_date.strftime("%m.%d").lstrip('0').replace('.0', '.'),
+        r'#\s*' + escape_dots(local_date.strftime("%m.%d").lstrip('0').replace('.0', '.')),
+        r'##\s*' + escape_dots(local_date.strftime("%m.%d").lstrip('0').replace('.0', '.')),
+        r'###\s*' + escape_dots(local_date.strftime("%m.%d").lstrip('0').replace('.0', '.')),
         r'#\s*' + local_date.strftime("%Y/%m/%d"),
         r'##\s*' + local_date.strftime("%Y/%m/%d"),
         r'###\s*' + local_date.strftime("%Y/%m/%d"),
@@ -147,9 +151,9 @@ def find_date_in_content(content, local_date):
         r'#\s*' + local_date.strftime("%Y-%m-%d"),
         r'##\s*' + local_date.strftime("%Y-%m-%d"),
         r'###\s*' + local_date.strftime("%Y-%m-%d"),
-        r'#\s*' + local_date.strftime("%m.%d").zfill(5),
-        r'##\s*' + local_date.strftime("%m.%d").zfill(5),
-        r'###\s*' + local_date.strftime("%m.%d").zfill(5)
+        r'#\s*' + escape_dots(local_date.strftime("%m.%d").zfill(5)),
+        r'##\s*' + escape_dots(local_date.strftime("%m.%d").zfill(5)),
+        r'###\s*' + escape_dots(local_date.strftime("%m.%d").zfill(5))
     ]
     combined_pattern = '|'.join(date_patterns)
     return re.search(combined_pattern, content)
