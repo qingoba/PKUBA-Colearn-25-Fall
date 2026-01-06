@@ -209,4 +209,29 @@ public:
 	- TWAP = (priceCumulative[t2] - priceCumulative[t1]) / (t2 - t1)
 	- 可防止价格操纵攻击
 
+### 2025.1.6
+
+- **套利基础:**
+	- 套利: 利用不同 DEX 之间的价格差异获利
+	- 三角套利: A→B→C→A, 最终获得更多 A 代币
+	- 前提: 理解 Uniswap 价格公式, 能计算不同池子的价格差异
+
+- **套利流程:**
+	- 监听 Mempool 中的大额交易(可能改变价格)
+	- 计算套利机会: 比较不同池子的价格, 计算利润
+	- 构造套利交易: 使用 Router 的多跳路径完成套利
+	- 考虑 Gas 成本: 利润必须大于 Gas 费用才有意义
+
+- **MEV (Maximal Extractable Value):**
+	- 矿工/验证者可以提取的最大价值
+	- 包括: 套利、抢跑(front-running)、尾随(back-running)
+	- 通过监听 Pending Transactions 发现机会
+	- 需要高 Gas Price 确保交易优先被打包
+
+- **套利策略要点:**
+	- 价格发现: 实时监控多个池子的储备量
+	- 路径优化: 选择最优交易路径(直接或间接)
+	- 滑点控制: 考虑交易对价格的影响
+	- 原子性: 使用 Flash Loan 或单笔交易完成套利
+
 <!-- Content_END -->
