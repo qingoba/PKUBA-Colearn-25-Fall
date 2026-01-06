@@ -209,7 +209,7 @@ public:
 	- TWAP = (priceCumulative[t2] - priceCumulative[t1]) / (t2 - t1)
 	- 可防止价格操纵攻击
 
-### 2025.01.05
+### 2026.01.05
 
 - **套利基础:**
 	- 套利: 利用不同 DEX 之间的价格差异获利
