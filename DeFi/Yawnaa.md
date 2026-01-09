@@ -119,9 +119,10 @@ Follow-Up：
  - 配置完毕, 运行 telegram.go
  - Live Monitor 监测链上事件.
 
-### 2025.1.9
+### 2026.1.9
 
  - 阅读了Uniswap V2 的源代码和文档
  - 了解swap函数、流动性管理
+ - 阅读Uniswap V2 白皮书
 
 <!-- Content_END -->
