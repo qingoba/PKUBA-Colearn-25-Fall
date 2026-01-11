@@ -2022,6 +2022,7 @@ Topics: [0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef 0x00
 | **🌊 [Pending Tx]** | 新交易进入 Mempool，显示交易 Hash |
 | **📦 [New Block]** | 新区块已生成，显示区块高度、哈希和时间戳 |
 
+### 2025.12.31
 
 #### Week 4 Part1-Geth-Part III: The Graph & GraphQL
 
@@ -2315,5 +2316,164 @@ bad indexers: {
    - 数据必须按该字段排序
    - 不能随机跳转到任意位置
 
+### 2026.01.04
+
+#### Week 6 Part-Onchain-data
+
+##### 借助 Telegram Bot 实现 Live Monitor 实时通知
+
+本周链上数据小组的任务是: 使用 Week 4 中学习的 Live Monitoring, 监控自己感兴趣的链上事件, 借助 Telegram 机器人实现实时通知.
+
+参考步骤:
+
+1. 阅读 [telegram setup doc](./telegram-bot-setup.md) 配置机器人
+
+2. 配置完毕后, 运行 [`telegram.go`](./telegram.go) 文件尝试发送消息
+
+3. 借助 `telegram.go` 中的代码, 将 Live Monitor 监测到的链上事件, 通过消息发送, 提交收到消息的截图.
+
+   (也就是将消息通知的代码集成到原有的 Live Monitor 中, 实现一旦信号出现就自动通知的功能, 这个功能是非常实用的)
+
+注: Telegram 是 Web3 行业必备工具
+
+##### 如何从零开始创建 Telegram 机器人
+
+本指南将带您完成从零开始创建 Telegram 机器人的完整过程，包括机器人创建、配置以及与您的应用程序集成。
+
+###### 步骤 1：与 BotFather 开始聊天
+
+1. 打开 Telegram 并搜索 `@BotFather`
+2. 与 BotFather 开始聊天
+3. 发送 `/start` 开始
+
+###### 步骤 2：创建新机器人
+
+1. 发送 `/newbot` 命令
+2. 为您的机器人选择一个名称（显示名称）
+3. 为您的机器人选择一个用户名（必须以 'bot' 结尾，例如 `my_trading_bot`）
+4. BotFather 将为您提供一个**机器人令牌** - 请安全保存！
+
+###### 步骤 3：获取您的机器人令牌
+
+创建机器人后，BotFather 将提供一个如下格式的令牌：
+```
+123456789:ABCdefGHIjklMNOpqrsTUVwxyz
+```
+
+**重要安全注意事项：**
+- 永远不要公开分享此令牌
+- 将其存储在环境变量中
+- 在本地开发中使用 `.env` 文件或 export 命令
+- 在生产环境中使用安全的密钥管理
+
+###### 步骤 4：获取您的对话 ID
+
+给你新创建的机器人在Telegram上发一条任意信息。
+
+然后将以下网址中的{bot_token}用创建机器人时提供的令牌代替，在网页中输入以下网址：
+https://api.telegram.org/bot{bot_token}/getUpdates
+
+例如，如果你的令牌是 `123456789:ABCdefGHIjklMNOpqrsTUVwxyz`,则将网址改为：
+`https://api.telegram.org/bot123456789:ABCdefGHIjklMNOpqrsTUVwxyz/getUpdates`
+
+
+打开网之后，你会看到类似于以下的信息：
+```
+{"ok":true,"result":[{"update_id":880712345,
+"message":{"message_id":1,"from":{"id":5586512345,"is_bot":false,"first_name":"yourQuantGuy","username":"yourquantguy","language_code":"en","is_premium":true},"chat":{"id":5586512345,"first_name":"yourQuantGuy","username":"yourquantguy","type":"private"},"date":1759103123,"text":"/start","entities":[{"offset":0,"length":6,"type":"bot_command"}]}}]}
+```
+
+找到 "chat":{"id": ... }中的 id，即示例中的 5586512345。
+
+###### 步骤 5：使用 token 和 chatID
+一般来说, 我们把 token 和 chatID 存储在环境变量里, 而不是写在代码中.
+
+执行
+
+```
+export TELEGRAM_TOKEN="your_bot_token"
+export TELEGRAM_CHAT_ID="your_chat_id" 
+```
+
+然后运行 [`telegram.go` ](./telegram.go) 即可收到消息.
+
+#### Week 6 Part-DeFi Uniswap V2 源码研究
+
+本周 DeFi 小组的任务是：深入研究 **Uniswap V2** 的源代码和文档，理解其核心机制，为下周的套利策略打下基础。
+
+##### 任务目标
+
+ **核心目标：** 理解 Uniswap V2 的核心合约逻辑，特别是：
+- `Pair` 合约的 `swap` 函数工作原理
+- `Router` 合约与 `Pair` 合约的配合机制
+- 流动性池的定价公式（恒定乘积公式）
+
+-  理解这些机制是进行套利、MEV 等策略的基础。只有深入理解 DEX 的工作原理，才能发现套利机会并设计有效的策略。
+
+##### 学习资源
+
+###### 1. 官方文档
+
+- **Uniswap V2 文档：** https://docs.uniswap.org/contracts/v2/overview
+- **Uniswap V2 白皮书：** https://uniswap.org/whitepaper.pdf
+
+###### 2. 源代码
+
+- **Uniswap V2 Core（核心合约）：** https://github.com/Uniswap/v2-core
+  - 重点关注：`UniswapV2Pair.sol`（Pair 合约）
+- **Uniswap V2 Periphery（外围合约）：** https://github.com/Uniswap/v2-periphery
+  - 重点关注：`UniswapV2Router02.sol`（Router 合约）
+
+###### 3. 推荐阅读顺序
+
+1. 先阅读官方文档，了解整体架构
+2. 阅读 `UniswapV2Pair.sol`，理解流动性池的核心逻辑
+3. 阅读 `UniswapV2Router02.sol`，理解用户如何与 Pair 交互
+4. 结合代码和文档，理解完整的交易流程
+
+##### 核心问题与思考方向
+
+在阅读源代码时，请思考以下问题：
+
+###### Pair 合约相关
+
+1. **`swap` 函数：**
+   - `swap` 函数如何计算输出金额？
+   - 为什么使用 `x * y = k` 的恒定乘积公式？
+   - `swap` 函数中的 `_update` 函数做了什么？
+   - 滑点保护是如何实现的？
+
+2. **流动性管理：**
+   - `mint` 函数如何计算 LP Token 数量？
+   - `burn` 函数如何计算返还的代币数量？
+   - 为什么首次添加流动性时 LP Token 数量等于 sqrt(x * y)？
+
+3. **价格预言机：**
+   - `_update` 函数中的 `price0CumulativeLast` 和 `price1CumulativeLast` 是什么？
+   - 如何利用这些累积价格计算 TWAP（时间加权平均价格）？
+
+###### Router 合约相关
+
+1. **交易流程：**
+   - 用户调用 `swapExactTokensForTokens` 时，Router 做了什么？
+   - Router 如何确定使用哪个 Pair？
+   - Router 如何保证交易原子性（要么全部成功，要么全部失败）？
+
+2. **路径选择：**
+   - 什么是"路径"（path）？
+   - 为什么需要多跳交易（multi-hop）？
+   - Router 如何处理直接交易对和间接交易对？
+
+3. **滑点保护：**
+   - `amountOutMin` 参数的作用是什么？
+   - 如何计算合理的滑点容忍度？
+
+
+**注意：** 本周不需要部署池子或进行实际交易，重点是理解源代码和机制。下周我们将基于这些理解进行套利实践。
+
+### 2026.01.05
+
+看视频学习
+structured intro to how Bitcoin works and how to reason about claims; available via Princeton’s course page and broadly via online versions. [Bitcoin and Cryptocurrency Technologies](https://online.princeton.edu/bitcoin-and-cryptocurrency-technologies?utm_source=chatgpt.com)
 
 <!-- Content_END -->

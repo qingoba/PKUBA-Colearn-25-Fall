@@ -101,33 +101,87 @@
 | Name | W1 (11.17) | W2 (11.24) | W3 (12.01) | W4 (12.08) | W5 (12.15) | W6 (12.22) | W7 (12.29) | W8 (01.05) |
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | [DeFi/CauchyK9](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/CauchyK9.md) | ✅ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [DeFi/miyosep](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/miyosep.md) | ⭕️ | ✅ | ✅ | ⭕️ | ✅ |   | | |
-| [Onchain-data/Afterglow36](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36.md) | ✅ | ✅ | ✅ | ✅ | ✅ |   | | |
+| [DeFi/miyosep](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/miyosep.md) | ⭕️ | ✅ | ✅ | ⭕️ | ✅ | ❌ | | |
+| [Onchain-data/Afterglow36](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   |
 | [Onchain-data/ai0415](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ai0415.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Security/henrymartin262](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Security/henrymartin262.md) | ✅ | ✅ | ✅ | ✅ | ⭕️ |   | | |
-| [Onchain-data/donnyqiu](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/donnyqiu.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | |
-| [DeFi/Lucas-gs9](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/Lucas-gs9.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | |
-| [Security/0xTyche](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Security/0xTyche.md) | ✅ | ⭕️ | ✅ | ⭕️ | ✅ |   | | |
-| [DeFi/YaoShuai-hub](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub.md) | ✅ | ✅ | ✅ | ✅ | ✅ |   | | |
-| [Onchain-data/odsbaron](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/odsbaron.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | |
-| [Onchain-data/RenJW418](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418.md) | ✅ | ✅ | ✅ | ✅ | ✅ |   | | |
+| [Security/henrymartin262](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Security/henrymartin262.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   |
+| [Onchain-data/donnyqiu](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/donnyqiu.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [DeFi/Lucas-gs9](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/Lucas-gs9.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |   |
+| [Security/0xTyche](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Security/0xTyche.md) | ✅ | ⭕️ | ✅ | ⭕️ | ✅ | ❌ | | |
+| [DeFi/YaoShuai-hub](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Onchain-data/odsbaron](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/odsbaron.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Onchain-data/RenJW418](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [Onchain-data/Ariaboopboop](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Ariaboopboop.md) | ✅ | ⭕️ | ✅ | ⭕️ | ❌ | | | |
 | [Onchain-data/munger999](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/munger999.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/ZhaZhaFon](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ZhaZhaFon.md) | ✅ | ✅ | ✅ | ✅ | ✅ |   | | |
+| [Onchain-data/ZhaZhaFon](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/ZhaZhaFon.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   |
 | [Onchain-data/Jiaosifang](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Jiaosifang.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [DeFi/billyoftea](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/billyoftea.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | | |
+| [DeFi/billyoftea](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/billyoftea.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | [Onchain-data/Turing7777](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Turing7777.md) | ✅ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/AliceF0M0](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/AliceF0M0.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/WaterBearBobit](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/WaterBearBobit.md) | ✅ | ⭕️ | ✅ | ⭕️ | ❌ | | | |
 | [DeFi/lionelll](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/lionelll.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/aliced-crypto](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/aliced-crypto.md) | ✅ | ✅ | ✅ | ✅ | ✅ |   | | |
-| [Onchain-data/rayHartley](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/rayHartley.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ |   | | |
-| [DeFi/pandmonkey](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/pandmonkey.md) | ⭕️ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | | |
-| [DeFi/Yawnaa](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/Yawnaa.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | | |
+| [Onchain-data/aliced-crypto](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/aliced-crypto.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Onchain-data/rayHartley](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/rayHartley.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ |   |
+| [DeFi/pandmonkey](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/pandmonkey.md) | ⭕️ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ |
+| [DeFi/Yawnaa](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/Yawnaa.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ |
 | [DeFi/1248368338-droid](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/1248368338-droid.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/0xinsternet](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/0xinsternet.md) | ⭕️ | ⭕️ | ✅ | ✅ | ⭕️ |   | | |
-| [Onchain-data/LuBryant/LuBryant](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/LuBryant/LuBryant.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | | |
+| [Onchain-data/0xinsternet](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/0xinsternet.md) | ⭕️ | ⭕️ | ✅ | ✅ | ⭕️ | ❌ | | |
+| [Onchain-data/LuBryant/LuBryant](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/LuBryant/LuBryant.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 <!-- END_COMMIT_TABLE -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
