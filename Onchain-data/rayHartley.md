@@ -48,7 +48,7 @@ timezone: UTC+8
 目前创建了telegrambot
 <img width="1260" height="65" alt="image" src="https://github.com/user-attachments/assets/dec94b2f-006f-47a7-a65a-4f0ff32b1a45" />
 
-### 2025.01.03
+### 2026.01.03
 目前成功借助 telegram.go 中的代码, 将 Live Monitor 监测到的链上事件。
 截图如下：
 
