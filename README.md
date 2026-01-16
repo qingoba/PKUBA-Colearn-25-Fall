@@ -121,7 +121,7 @@
 | [Onchain-data/WaterBearBobit](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/WaterBearBobit.md) | ✅ | ⭕️ | ✅ | ⭕️ | ❌ | | | |
 | [DeFi/lionelll](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/lionelll.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/aliced-crypto](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/aliced-crypto.md) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [Onchain-data/rayHartley](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/rayHartley.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ❌ |
+| [Onchain-data/rayHartley](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/rayHartley.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭕️ |
 | [DeFi/pandmonkey](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/pandmonkey.md) | ⭕️ | ⭕️ | ✅ | ⭕️ | ✅ | ✅ | ✅ | ✅ |
 | [DeFi/Yawnaa](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/Yawnaa.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ⭕️ | ✅ |
 | [DeFi/1248368338-droid](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/1248368338-droid.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
@@ -430,13 +430,14 @@
 
 
 
+
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
 - 总参与人数: 27
-- 完成人数: 11
-- 完成用户: Onchain-data/Afterglow36, Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto, DeFi/pandmonkey, DeFi/Yawnaa, Onchain-data/LuBryant/LuBryant
+- 完成人数: 12
+- 完成用户: Onchain-data/Afterglow36, Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto, Onchain-data/rayHartley, DeFi/pandmonkey, DeFi/Yawnaa, Onchain-data/LuBryant/LuBryant
 - 全勤用户: Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto
-- 淘汰人数: 16
-- 淘汰率: 59.26%
+- 淘汰人数: 15
+- 淘汰率: 55.56%
 <!-- STATISTICALDATA_END -->
