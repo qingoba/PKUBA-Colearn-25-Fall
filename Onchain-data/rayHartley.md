@@ -49,8 +49,8 @@ timezone: UTC+8
 <img width="1260" height="65" alt="image" src="https://github.com/user-attachments/assets/dec94b2f-006f-47a7-a65a-4f0ff32b1a45" />
 
 ### 2026.01.03
-目前成功借助 telegram.go 中的代码, 将 Live Monitor 监测到的链上事件。
+运行 telegram.go 文件尝试发送消息
 截图如下：
-
+<img width="537" height="42" alt="image" src="https://github.com/user-attachments/assets/3806342c-c8bc-4d41-9f15-25c3ebc6a108" />
 
 <!-- Content_END -->
