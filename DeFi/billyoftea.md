@@ -1574,4 +1574,16 @@ Library 辅助：调用 getAmountsOut 预估回报。
 
 机制：如果 实际获得 < amountOutMin，交易自动 Revert (回滚)，保护用户资金不被夹子机器人 (MEV) 掠夺。
 
+### 2026.1.8
+简单学习Onchain-data部分内容
+
+
+(base) PS C:\Users\Lenovo\Desktop\pkuba\PKUBA-Colearn-25-Fall\weekly-tasks\Week6\Part-Onchain-data> go run telegram.go
+Telegram send message failed: Post "httsendMessage": context deadline exceeded (Client.Timeout exceeded while awaiting headers)
+Message sent: false
+配置HTTP客户端使用 Clash 代理（127.0.0.1:7890）
+
+<img src="https://raw.githubusercontent.com/billyoftea/pic/main/28f2478cfa2ef3a6d8266c4246d88a55.jpg" />
+
+
 <!-- Content_END -->
