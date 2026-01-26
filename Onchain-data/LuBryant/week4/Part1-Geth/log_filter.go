@@ -27,7 +27,7 @@ const (
 	// ⚠️ 请替换为你的 Infura RPC URL
 	// 格式: https://mainnet.infura.io/v3/YOUR_API_KEY
 	// 获取方式: 访问 https://infura.io/ 注册并获取 API Key
-	InfuraURL = "https://mainnet.infura.io/v3/YOUR_API_KEY"
+	InfuraURL = "https://mainnet.infura.io/v3/f4b1765357b1449e84efc12dcdbc502d"
 	
 	// ⚠️ 请根据你的代理软件修改端口号
 	// 常见代理端口：
@@ -35,7 +35,7 @@ const (
 	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
 	//   - Shadowsocks: 1080 (SOCKS5)
 	// 如果不需要代理，可以设为空字符串 ""
-	PROXY_PORT = "YOUR_PROXY_PORT" 
+	PROXY_PORT = "7897" 
 	
 	// 设置较大的超时时间，应对代理连接延迟
 	CONNECTION_TIMEOUT = 45 * time.Second 
@@ -98,8 +98,8 @@ func main() {
 	// 1. 计算 Event Signature 哈希 (Topic 0)
 	transferEventSignature := crypto.Keccak256Hash([]byte("Transfer(address,address,uint256)"))
 
-	// 2. 构造查询参数 (查询最新 10 个区块)
-	const BLOCK_RANGE = 10
+	// 2. 构造查询参数 (查询最新 100 个区块)
+	const BLOCK_RANGE = 100
 	fromBlock := big.NewInt(latestBlock - BLOCK_RANGE)
 	toBlock := big.NewInt(latestBlock)
 	

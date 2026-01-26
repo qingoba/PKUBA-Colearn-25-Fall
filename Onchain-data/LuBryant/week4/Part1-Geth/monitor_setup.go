@@ -25,7 +25,7 @@ const (
 	// Infura: wss://mainnet.infura.io/ws/v3/YOUR_API_KEY
 	// Alchemy: wss://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
 	// 获取方式: 访问 https://infura.io/ 或 https://www.alchemy.com/ 注册并获取 API Key
-	InfuraWSS = "wss://mainnet.infura.io/ws/v3/YOUR_API_KEY"
+	InfuraWSS = "wss://mainnet.infura.io/ws/v3/f4b1765357b1449e84efc12dcdbc502d"
 
 	// ⚠️ 请根据你的代理软件修改端口号
 	// 常见代理端口：
@@ -33,7 +33,7 @@ const (
 	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
 	//   - Shadowsocks: 1080 (SOCKS5)
 	// 如果不需要代理，可以设为空字符串 ""
-	PROXY_PORT = "YOUR_PROXY_PORT"
+	PROXY_PORT = "7897"
 
 	// 设置较大的超时时间，应对代理连接延迟
 	CONNECTION_TIMEOUT = 45 * time.Second
