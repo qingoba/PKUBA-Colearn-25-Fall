@@ -14,6 +14,7 @@ import (
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/ethclient/gethclient"
 	"github.com/ethereum/go-ethereum/rpc"
+	"github.com/joho/godotenv"
 )
 
 // ------------------------------------------------
@@ -21,19 +22,21 @@ import (
 // ------------------------------------------------
 
 const (
-	// ⚠️ 请替换为你的 WebSocket 节点地址
-	// Infura: wss://mainnet.infura.io/ws/v3/YOUR_API_KEY
-	// Alchemy: wss://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
-	// 获取方式: 访问 https://infura.io/ 或 https://www.alchemy.com/ 注册并获取 API Key
-	InfuraWSS = "wss://mainnet.infura.io/ws/v3/f4b1765357b1449e84efc12dcdbc502d"
+	// // ⚠️ 请替换为你的 WebSocket 节点地址
+	// // Infura: wss://mainnet.infura.io/ws/v3/YOUR_API_KEY
+	// // Alchemy: wss://eth-mainnet.g.alchemy.com/v2/YOUR_API_KEY
+	// // 获取方式: 访问 https://infura.io/ 或 https://www.alchemy.com/ 注册并获取 API Key
+	// InfuraWSS = "wss://mainnet.infura.io/ws/v3/f4b1765357b1449e84efc12dcdbc502d"
 
-	// ⚠️ 请根据你的代理软件修改端口号
-	// 常见代理端口：
-	//   - Clash: 7890 (HTTP), 7891 (SOCKS5)
-	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
-	//   - Shadowsocks: 1080 (SOCKS5)
-	// 如果不需要代理，可以设为空字符串 ""
-	PROXY_PORT = "7897"
+	// // ⚠️ 请根据你的代理软件修改端口号
+	// // 常见代理端口：
+	// //   - Clash: 7890 (HTTP), 7891 (SOCKS5)
+	// //   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
+	// //   - Shadowsocks: 1080 (SOCKS5)
+	// // 如果不需要代理，可以设为空字符串 ""
+	// PROXY_PORT = "7897"
+	ENV_INFURA_URL = "INFURA_WSS"
+	ENV_PROXY_PORT = "PROXY_PORT"
 
 	// 设置较大的超时时间，应对代理连接延迟
 	CONNECTION_TIMEOUT = 45 * time.Second
@@ -41,6 +44,15 @@ const (
 
 func main() {
 	log.Println("开始配置代理并连接到 WebSocket 节点")
+
+	// 0. 加载 .env（如果不存在则忽略）
+	_ = godotenv.Load()
+
+	InfuraWSS := os.Getenv(ENV_INFURA_URL)
+	if InfuraWSS == "" {
+		log.Fatalf("缺少环境变量 %s，请在 .env 或系统环境变量中设置", ENV_INFURA_URL)
+	}
+	PROXY_PORT := os.Getenv(ENV_PROXY_PORT)
 
 	// 1. 配置代理（WebSocket 连接需要通过代理，如果需要）
 	// 注意：WebSocket 连接通过设置环境变量来让 rpc.DialContext 使用代理

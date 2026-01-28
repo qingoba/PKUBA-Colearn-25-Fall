@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"math/big"
+	"os"
 	"time"
 	// 新增了处理网络连接的包
 	"net/http"
@@ -15,6 +16,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/ethereum/go-ethereum/rpc" // 用于配置自定义的 http.Client
+	"github.com/joho/godotenv"
 )
 
 // ------------------------------------------------
@@ -24,18 +26,20 @@ import (
 const (
 	USDCAddress = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 	
-	// ⚠️ 请替换为你的 Infura RPC URL
-	// 格式: https://mainnet.infura.io/v3/YOUR_API_KEY
-	// 获取方式: 访问 https://infura.io/ 注册并获取 API Key
-	InfuraURL = "https://mainnet.infura.io/v3/f4b1765357b1449e84efc12dcdbc502d"
+	// // ⚠️ 请替换为你的 Infura RPC URL
+	// // 格式: https://mainnet.infura.io/v3/YOUR_API_KEY
+	// // 获取方式: 访问 https://infura.io/ 注册并获取 API Key
+	// InfuraURL = "https://mainnet.infura.io/v3/f4b1765357b1449e84efc12dcdbc502d"
 	
-	// ⚠️ 请根据你的代理软件修改端口号
-	// 常见代理端口：
-	//   - Clash: 7890 (HTTP), 7891 (SOCKS5)
-	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
-	//   - Shadowsocks: 1080 (SOCKS5)
-	// 如果不需要代理，可以设为空字符串 ""
-	PROXY_PORT = "7897" 
+	// // ⚠️ 请根据你的代理软件修改端口号
+	// // 常见代理端口：
+	// //   - Clash: 7890 (HTTP), 7891 (SOCKS5)
+	// //   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
+	// //   - Shadowsocks: 1080 (SOCKS5)
+	// // 如果不需要代理，可以设为空字符串 ""
+	// PROXY_PORT = "7897" 
+	ENV_INFURA_URL = "INFURA_URL"
+	ENV_PROXY_PORT = "PROXY_PORT"
 	
 	// 设置较大的超时时间，应对代理连接延迟
 	CONNECTION_TIMEOUT = 45 * time.Second 
@@ -43,6 +47,15 @@ const (
 
 func main() {
 	log.Println("开始配置代理并连接到以太坊客户端")
+
+	// 0. 加载 .env（如果不存在则忽略）
+	_ = godotenv.Load()
+
+	InfuraURL := os.Getenv(ENV_INFURA_URL)
+	if InfuraURL == "" {
+		log.Fatalf("缺少环境变量 %s，请在 .env 或系统环境变量中设置", ENV_INFURA_URL)
+	}
+	PROXY_PORT := os.Getenv(ENV_PROXY_PORT)
 
 	// 1. 配置代理（如果需要）
 	var transport *http.Transport

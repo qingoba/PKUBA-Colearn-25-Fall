@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
 const BaseURL = "https://api.telegram.org/bot"
@@ -86,6 +88,8 @@ func (bot *TelegramBot) sendMessage(method string, payload map[string]interface{
 }
 
 func main() {
+	_ = godotenv.Load()
+
 	token := os.Getenv("TELEGRAM_TOKEN")
 	chatID := os.Getenv("TELEGRAM_CHAT_ID")
 

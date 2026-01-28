@@ -10,6 +10,9 @@ import (
 	"net/url"
 	"strings"
 	"time"
+	"os"
+
+	"github.com/joho/godotenv"
 )
 
 // ------------------------------------------------
@@ -17,18 +20,20 @@ import (
 // ------------------------------------------------
 
 const (
-	// ⚠️ 请替换为你的 The Graph API URL
-	// 格式: https://gateway-arbitrum.network.thegraph.com/api/[YOUR_API_KEY]/subgraphs/id/[SUBGRAPH_ID]
-	// 获取方式: 访问 https://thegraph.com/studio/ 获取 API Key
-	GraphURL = "https://gateway-arbitrum.network.thegraph.com/api/YOUR_API_KEY/subgraphs/id/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B"
+	// // ⚠️ 请替换为你的 The Graph API URL
+	// // 格式: https://gateway-arbitrum.network.thegraph.com/api/[YOUR_API_KEY]/subgraphs/id/[SUBGRAPH_ID]
+	// // 获取方式: 访问 https://thegraph.com/studio/ 获取 API Key
+	// GraphURL = "https://gateway-arbitrum.network.thegraph.com/api/a9c80a647c4762f3224686b6ecdbdc77/subgraphs/id/HUZDsRpEVP2AvzDCyzDHtdc64dyDxx8FQjzsmqSg4H3B"
 	
-	// ⚠️ 请根据你的代理软件修改端口号
-	// 常见代理端口：
-	//   - Clash: 7890 (HTTP), 7891 (SOCKS5)
-	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
-	//   - Shadowsocks: 1080 (SOCKS5)
-	// 如果不需要代理，可以设为空字符串 ""
-	PROXY_PORT = "YOUR_PROXY_PORT"
+	// // ⚠️ 请根据你的代理软件修改端口号
+	// // 常见代理端口：
+	// //   - Clash: 7890 (HTTP), 7891 (SOCKS5)
+	// //   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
+	// //   - Shadowsocks: 1080 (SOCKS5)
+	// // 如果不需要代理，可以设为空字符串 ""
+	// PROXY_PORT = "7897"
+	ENV_GRAPH_URL = "GRAPH_URL"
+	ENV_PROXY_PORT = "PROXY_PORT"
 	
 	CONNECTION_TIMEOUT = 45 * time.Second
 	MAX_POOLS_TO_FETCH = 5000 // 限制拉取数量，用于演示
@@ -52,6 +57,25 @@ type Response struct {
 	Errors []struct {
 		Message string `json:"message"`
 	} `json:"errors,omitempty"` // GraphQL 错误信息
+}
+
+// 定义全局变量
+var (
+	GraphURL string
+	PROXY_PORT string
+)
+
+// 全局变量赋值
+func init() {
+	// 加载 .env（如果不存在则忽略）
+	_ = godotenv.Load()
+
+	
+	GraphURL = os.Getenv(ENV_GRAPH_URL) // := 是“短变量声明”，会在当前作用域新建变量（或与已有变量混用）；= 是给已存在的变量赋值。
+	if GraphURL == "" {
+		log.Fatalf("缺少环境变量 %s，请在 .env 或系统环境变量中设置", ENV_GRAPH_URL)
+	}
+	PROXY_PORT = os.Getenv(ENV_PROXY_PORT)
 }
 
 func createClient() *http.Client {
