@@ -141,7 +141,13 @@
 | [DeFi/1248368338-droid](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/1248368338-droid.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/0xinsternet](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/0xinsternet.md) | ⭕️ | ⭕️ | ✅ | ✅ | ⭕️ | ❌ | | |
 | [Onchain-data/LuBryant/LuBryant](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/LuBryant/LuBryant.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/starlette-0.38.6.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/starlette-0.38.6.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/uvicorn-0.30.6.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/uvicorn-0.30.6.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
@@ -166,10 +172,10 @@
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
-- 总参与人数: 27
+- 总参与人数: 32
 - 完成人数: 12
 - 完成用户: Onchain-data/Afterglow36, Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto, Onchain-data/rayHartley, DeFi/pandmonkey, DeFi/Yawnaa, Onchain-data/LuBryant/LuBryant
 - 全勤用户: Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto
-- 淘汰人数: 15
-- 淘汰率: 55.56%
+- 淘汰人数: 20
+- 淘汰率: 62.50%
 <!-- STATISTICALDATA_END -->
