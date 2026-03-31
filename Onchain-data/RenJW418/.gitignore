@@ -1,0 +1,26 @@
+# ───────────────────────────
+# TronSage .gitignore
+# ───────────────────────────
+
+# env with real keys — NEVER commit
+.env.local
+.env.production
+
+# Next.js
+.next/
+out/
+build/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
