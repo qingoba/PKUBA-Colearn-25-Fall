@@ -146,9 +146,9 @@
 | [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/uvicorn-0.30.6.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/uvicorn-0.30.6.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/RenJW418/README.en](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418/README.en.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/RenJW418/TronSage/README.en](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418/TronSage/README.en.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
@@ -177,10 +177,10 @@
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
-- 总参与人数: 34
+- 总参与人数: 33
 - 完成人数: 12
 - 完成用户: Onchain-data/Afterglow36, Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto, Onchain-data/rayHartley, DeFi/pandmonkey, DeFi/Yawnaa, Onchain-data/LuBryant/LuBryant
 - 全勤用户: Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto
-- 淘汰人数: 22
-- 淘汰率: 64.71%
+- 淘汰人数: 21
+- 淘汰率: 63.64%
 <!-- STATISTICALDATA_END -->
