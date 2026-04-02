@@ -147,7 +147,23 @@
 | [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/RenJW418/TronSage/README.en](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418/TronSage/README.en.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/openclaw-plugin/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/openclaw-plugin/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/V2_PLAN](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/V2_PLAN.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/DEPLOYMENT](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/DEPLOYMENT.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-defi/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-defi/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-data/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-data/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/CLAUDE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/CLAUDE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/DEMO_SCRIPT](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/DEMO_SCRIPT.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-automation/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-automation/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/V3_PLAN](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/V3_PLAN.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-identity/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-identity/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-payment/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw-payment/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/PROJECT_PLAN](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/PROJECT_PLAN.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw/SKILL](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/packages/skills/tronclaw/SKILL.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/doc/TRON_BankOfAI_Hackathon](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/doc/TRON_BankOfAI_Hackathon.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
+| [DeFi/YaoShuai-hub/TronClaw/PROCESS](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/YaoShuai-hub/TronClaw/PROCESS.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 <!-- END_COMMIT_TABLE -->
+
 
 
 
@@ -183,10 +199,10 @@
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
-- 总参与人数: 33
+- 总参与人数: 48
 - 完成人数: 12
 - 完成用户: Onchain-data/Afterglow36, Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto, Onchain-data/rayHartley, DeFi/pandmonkey, DeFi/Yawnaa, Onchain-data/LuBryant/LuBryant
 - 全勤用户: Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto
-- 淘汰人数: 21
-- 淘汰率: 63.64%
+- 淘汰人数: 36
+- 淘汰率: 75.00%
 <!-- STATISTICALDATA_END -->
