@@ -1,5 +1,22 @@
 # PKUBA 共学小组 2025 Fall
 
+## 大作业第二弹：Intro to Atomic Arbitrage
+
+🎉PKUBA 共学小组大作业第二弹来了！
+
+本次大作业面向 **DeFi 合约组**同学，目标是复刻一笔真实的以太坊链上 atomic arbitrage 交易，从看懂 tx 到写合约、本地 re-simulate 全流程走一遍。
+
+**你将学到：**
+- 如何读懂一笔真实的 MEV 套利交易（event log、tx graph、call trace）
+- Uniswap V3 的 swap 机制与 flash swap 原理
+- Peapods 等 earning protocol 的 token wrapping 机制
+- Foundry fork 测试与 re-simulation 技术
+- 编写能与多个 DeFi 协议交互的套利合约
+
+详情点击: [Intro to Atomic Arb](./01-intro-to-atomic-arb.md)
+
+---
+
 ## Hackthon on Tron is now Live ! 🔥🔥🔥
 
 🎉PKUBA 共学小组大作业第一弹来了！
