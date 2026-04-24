@@ -1,0 +1,17 @@
+{
+  "name": "@tronclaw/openclaw-plugin",
+  "version": "1.0.0",
+  "description": "TronClaw plugin for OpenClaw — TRON blockchain capabilities",
+  "type": "module",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["tron", "blockchain", "defi", "payment", "web3", "openclaw"],
+  "dependencies": {
+    "@tronclaw/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  }
+}

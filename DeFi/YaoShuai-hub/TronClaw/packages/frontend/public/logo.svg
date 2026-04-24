@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" fill="none">
+  <defs>
+    <linearGradient id="body-grad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#EF5350"/>
+      <stop offset="60%" stop-color="#D32F2F"/>
+      <stop offset="100%" stop-color="#B71C1C"/>
+    </linearGradient>
+    <linearGradient id="body-hi" x1="30%" y1="0%" x2="70%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A80" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#EF5350" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="belly-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFCCBC"/>
+      <stop offset="100%" stop-color="#FFAB91"/>
+    </linearGradient>
+    <linearGradient id="sm-claw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7043"/>
+      <stop offset="100%" stop-color="#E53935"/>
+    </linearGradient>
+    <linearGradient id="big-claw-outer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A65"/>
+      <stop offset="35%" stop-color="#FF5722"/>
+      <stop offset="100%" stop-color="#E53935"/>
+    </linearGradient>
+    <linearGradient id="big-claw-inner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFAB91"/>
+      <stop offset="100%" stop-color="#FF7043"/>
+    </linearGradient>
+    <linearGradient id="leg-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D32F2F"/>
+      <stop offset="100%" stop-color="#B71C1C"/>
+    </linearGradient>
+    <filter id="shadow-sm">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+    <filter id="shadow-lg">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.5" flood-color="#000" flood-opacity="0.22"/>
+    </filter>
+    <filter id="inner-glow">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ════ BODY ════ -->
+  <ellipse cx="48" cy="68" rx="28" ry="24" fill="url(#body-grad)" filter="url(#shadow-lg)"/>
+  <!-- Body top highlight -->
+  <ellipse cx="44" cy="58" rx="14" ry="8" fill="url(#body-hi)"/>
+  <!-- Shell texture lines -->
+  <path d="M30 64 Q48 56 66 64" stroke="#C62828" stroke-width="0.6" fill="none" opacity="0.35"/>
+  <path d="M33 60 Q48 53 63 60" stroke="#C62828" stroke-width="0.5" fill="none" opacity="0.25"/>
+
+  <!-- ════ BELLY ════ -->
+  <ellipse cx="48" cy="73" rx="16" ry="13" fill="url(#belly-grad)" opacity="0.6"/>
+
+  <!-- ════ TRON TRIANGLE NODES (on belly) ════ -->
+  <!-- Outer triangle -->
+  <circle cx="48" cy="63" r="2.5" fill="#4ADE80" opacity="0.9"/>
+  <circle cx="38" cy="78" r="2.5" fill="#4ADE80" opacity="0.9"/>
+  <circle cx="58" cy="78" r="2.5" fill="#4ADE80" opacity="0.9"/>
+  <!-- Center + mid nodes -->
+  <circle cx="48" cy="73" r="2" fill="#4ADE80" opacity="0.7"/>
+  <circle cx="42" cy="69" r="1.6" fill="#4ADE80" opacity="0.55"/>
+  <circle cx="54" cy="69" r="1.6" fill="#4ADE80" opacity="0.55"/>
+  <!-- Triangle edges -->
+  <line x1="48" y1="63" x2="38" y2="78" stroke="#4ADE80" stroke-width="1" opacity="0.5"/>
+  <line x1="48" y1="63" x2="58" y2="78" stroke="#4ADE80" stroke-width="1" opacity="0.5"/>
+  <line x1="38" y1="78" x2="58" y2="78" stroke="#4ADE80" stroke-width="1" opacity="0.5"/>
+  <!-- Inner spokes -->
+  <line x1="48" y1="63" x2="48" y2="73" stroke="#4ADE80" stroke-width="0.7" opacity="0.35"/>
+  <line x1="48" y1="73" x2="38" y2="78" stroke="#4ADE80" stroke-width="0.7" opacity="0.35"/>
+  <line x1="48" y1="73" x2="58" y2="78" stroke="#4ADE80" stroke-width="0.7" opacity="0.35"/>
+  <line x1="42" y1="69" x2="54" y2="69" stroke="#4ADE80" stroke-width="0.6" opacity="0.3"/>
+  <line x1="42" y1="69" x2="48" y2="73" stroke="#4ADE80" stroke-width="0.5" opacity="0.25"/>
+  <line x1="54" y1="69" x2="48" y2="73" stroke="#4ADE80" stroke-width="0.5" opacity="0.25"/>
+
+  <!-- ════ EYE STALKS ════ -->
+  <rect x="37" y="40" width="5" height="13" rx="2.5" fill="#E53935"/>
+  <rect x="55" y="40" width="5" height="13" rx="2.5" fill="#E53935"/>
+  <!-- Stalk highlights -->
+  <rect x="38.5" y="41" width="1.5" height="10" rx="0.8" fill="#FF8A80" opacity="0.3"/>
+  <rect x="56.5" y="41" width="1.5" height="10" rx="0.8" fill="#FF8A80" opacity="0.3"/>
+
+  <!-- ════ EYES ════ -->
+  <circle cx="39.5" cy="34.5" r="10" fill="#FFFDE7" filter="url(#shadow-sm)"/>
+  <circle cx="56.5" cy="34.5" r="10" fill="#FFFDE7" filter="url(#shadow-sm)"/>
+  <!-- Inner white -->
+  <circle cx="39.5" cy="34.5" r="9" fill="#FFF"/>
+  <circle cx="56.5" cy="34.5" r="9" fill="#FFF"/>
+  <!-- Iris -->
+  <circle cx="41.5" cy="33.5" r="5" fill="#283593"/>
+  <circle cx="58.5" cy="33.5" r="5" fill="#283593"/>
+  <!-- Pupil -->
+  <circle cx="42" cy="33" r="3" fill="#0D1B4A"/>
+  <circle cx="59" cy="33" r="3" fill="#0D1B4A"/>
+  <!-- Primary highlight -->
+  <circle cx="44" cy="31" r="2" fill="#FFF"/>
+  <circle cx="61" cy="31" r="2" fill="#FFF"/>
+  <!-- Secondary highlight -->
+  <circle cx="40" cy="36" r="1" fill="#FFF" opacity="0.5"/>
+  <circle cx="57" cy="36" r="1" fill="#FFF" opacity="0.5"/>
+
+  <!-- Blush cheeks -->
+  <ellipse cx="30" cy="70" rx="5" ry="2.5" fill="#FF8A80" opacity="0.3"/>
+  <ellipse cx="66" cy="70" rx="5" ry="2.5" fill="#FF8A80" opacity="0.3"/>
+
+  <!-- ════ LEFT SMALL CLAW ════ -->
+  <!-- Arm -->
+  <path d="M20 60 Q14 54 10 46" stroke="url(#sm-claw)" stroke-width="5" fill="none" stroke-linecap="round" filter="url(#shadow-sm)"/>
+  <!-- Upper prong -->
+  <path d="M10 46 Q4 38 3 32 Q2 28 5 30 Q9 34 11 40Z" fill="url(#sm-claw)" filter="url(#shadow-sm)"/>
+  <!-- Lower prong -->
+  <path d="M10 46 Q8 40 10 34 Q11 30 13 33 Q14 38 12 43Z" fill="url(#sm-claw)"/>
+  <!-- Prong highlights -->
+  <path d="M5 33 Q7 36 10 42" stroke="#FFCCBC" stroke-width="0.7" fill="none" opacity="0.4"/>
+  <path d="M11 35 Q12 38 11 42" stroke="#FFCCBC" stroke-width="0.5" fill="none" opacity="0.3"/>
+  <!-- Gap line -->
+  <path d="M7 36 Q9 40 10 44" stroke="#FFF8E1" stroke-width="0.8" fill="none" opacity="0.35"/>
+
+  <!-- ════ RIGHT BIG CLAW (SIGNATURE) ════ -->
+  <!-- Arm — thick, muscular -->
+  <path d="M76 58 Q88 48 96 38" stroke="url(#big-claw-outer)" stroke-width="7" fill="none" stroke-linecap="round" filter="url(#shadow-lg)"/>
+  <!-- Arm highlight -->
+  <path d="M78 56 Q88 47 94 38" stroke="#FFAB91" stroke-width="1.5" fill="none" opacity="0.25"/>
+
+  <!-- ★ Upper prong — BIG, long, sweeping curve ★ -->
+  <path d="M96 38 Q102 28 110 18 Q116 10 122 8 Q128 7 128 12 Q127 18 122 24 Q116 30 108 35 Q102 38 96 38Z"
+    fill="url(#big-claw-outer)" filter="url(#shadow-lg)"/>
+  <!-- Upper prong ridges (texture) -->
+  <path d="M100 24 Q108 16 120 12" stroke="#FFCCBC" stroke-width="1.2" fill="none" opacity="0.3"/>
+  <path d="M102 28 Q110 20 122 16" stroke="#FFCCBC" stroke-width="0.8" fill="none" opacity="0.2"/>
+  <!-- Upper prong inner surface -->
+  <path d="M96 38 Q102 34 108 32 Q114 30 120 26" stroke="url(#big-claw-inner)" stroke-width="2" fill="none" opacity="0.5"/>
+
+  <!-- ★ Lower prong — shorter but thick, curves upward ★ -->
+  <path d="M96 38 Q102 42 112 44 Q120 44 124 40 Q126 36 124 32 Q120 30 114 32 Q108 34 102 36 Q98 37 96 38Z"
+    fill="url(#big-claw-outer)" filter="url(#shadow-sm)"/>
+  <!-- Lower prong ridge -->
+  <path d="M102 42 Q110 44 120 42" stroke="#FFAB91" stroke-width="1" fill="none" opacity="0.3"/>
+  <!-- Lower prong inner surface -->
+  <path d="M100 40 Q108 38 116 34" stroke="url(#big-claw-inner)" stroke-width="1.5" fill="none" opacity="0.4"/>
+
+  <!-- Gap between prongs (the bite line) -->
+  <path d="M108 35 Q116 32 122 28" stroke="#FFF8E1" stroke-width="1.5" fill="none" opacity="0.55"/>
+  <!-- Serrated inner edge bumps -->
+  <circle cx="110" cy="34.5" r="1.2" fill="#FFCCBC" opacity="0.45"/>
+  <circle cx="115" cy="33" r="1" fill="#FFCCBC" opacity="0.4"/>
+  <circle cx="119" cy="31" r="0.8" fill="#FFCCBC" opacity="0.35"/>
+  <circle cx="112" cy="38" r="1" fill="#FFCCBC" opacity="0.35"/>
+  <circle cx="117" cy="37" r="0.8" fill="#FFCCBC" opacity="0.3"/>
+
+  <!-- ════ LEGS ════ -->
+  <!-- Left pair -->
+  <line x1="30" y1="86" x2="20" y2="100" stroke="url(#leg-grad)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="40" y1="89" x2="32" y2="103" stroke="url(#leg-grad)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Right pair -->
+  <line x1="56" y1="89" x2="64" y2="103" stroke="url(#leg-grad)" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="66" y1="86" x2="76" y2="100" stroke="url(#leg-grad)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- Leg highlights -->
+  <line x1="31" y1="87" x2="22" y2="99" stroke="#FF8A80" stroke-width="0.8" opacity="0.2"/>
+  <line x1="41" y1="90" x2="34" y2="102" stroke="#FF8A80" stroke-width="0.8" opacity="0.2"/>
+  <line x1="55" y1="90" x2="62" y2="102" stroke="#FF8A80" stroke-width="0.8" opacity="0.2"/>
+  <line x1="65" y1="87" x2="74" y2="99" stroke="#FF8A80" stroke-width="0.8" opacity="0.2"/>
+  <!-- Round feet -->
+  <circle cx="19" cy="101.5" r="3.5" fill="#FF7043"/>
+  <circle cx="31" cy="104.5" r="3.5" fill="#FF7043"/>
+  <circle cx="65" cy="104.5" r="3.5" fill="#FF7043"/>
+  <circle cx="77" cy="101.5" r="3.5" fill="#FF7043"/>
+  <!-- Feet highlights -->
+  <circle cx="18" cy="100" r="1.2" fill="#FFAB91" opacity="0.4"/>
+  <circle cx="30" cy="103" r="1.2" fill="#FFAB91" opacity="0.4"/>
+  <circle cx="64" cy="103" r="1.2" fill="#FFAB91" opacity="0.4"/>
+  <circle cx="76" cy="100" r="1.2" fill="#FFAB91" opacity="0.4"/>
+</svg>

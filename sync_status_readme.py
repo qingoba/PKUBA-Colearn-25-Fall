@@ -291,53 +291,31 @@ def check_weekly_status(user_status, date, user_tz):
 
 def get_all_user_files():
     """
-    递归查找所有用户文件，支持子文件夹中的 .md 文件
-    返回格式: (nickname, relative_path)
+    查找所有用户打卡文件，只认以下两种路径格式:
+    - {小组}/{用户名}.md
+    - {小组}/{用户名}/{用户名}.md
     """
     ALLOWED_DIRS = {'DeFi', 'Onchain-data', 'Security'}
-    user_files = []
-    
-    # 递归遍历所有目录
-    for root, dirs, files in os.walk('.'):
-        # 跳过 .git 目录
-        if '.git' in root:
-            continue
-            
-        # Check if current directory is within allowed directories
-        norm_root = os.path.normpath(root)
-        path_parts = norm_root.split(os.sep)
-        
-        # Only process files in allowed directories
-        if not any(d in ALLOWED_DIRS for d in path_parts):
-            continue
-
-        for f in files:
-            if f.lower().endswith(FILE_SUFFIX.lower()):
-                # Exclude README.md and Template files
-                if f.lower() == 'readme.md' or f.lower().startswith('template'):
-                    continue
-                
-                # 获取相对路径
-                rel_path = os.path.join(root, f)
-                # 标准化路径（处理 ./ 前缀）
-                if rel_path.startswith('./') or rel_path.startswith('.\\'):
-                    rel_path = rel_path[2:]
-                # 获取文件名（不含扩展名）作为 nickname
-                nickname = f[:-len(FILE_SUFFIX)]
-                user_files.append((nickname, rel_path))
-    
-    # 如果文件在子文件夹中，使用相对路径作为标识
-    # 否则使用文件名
     result = []
-    for nickname, rel_path in user_files:
-        if os.path.dirname(rel_path):  # 在子文件夹中
-            # 使用相对路径作为标识，但去掉扩展名
-            # Ensure forward slashes for consistency
-            identifier = rel_path[:-len(FILE_SUFFIX)].replace('\\', '/')
-            result.append(identifier)
-        else:  # 在根目录
-            result.append(nickname)
-    
+
+    for group_dir in ALLOWED_DIRS:
+        if not os.path.isdir(group_dir):
+            continue
+        for entry in os.listdir(group_dir):
+            entry_path = os.path.join(group_dir, entry)
+            if os.path.isfile(entry_path) and entry.lower().endswith(FILE_SUFFIX.lower()):
+                # {小组}/{用户名}.md
+                if entry.lower() == 'readme.md' or entry.lower().startswith('template'):
+                    continue
+                identifier = f"{group_dir}/{entry[:-len(FILE_SUFFIX)]}"
+                result.append(identifier)
+            elif os.path.isdir(entry_path):
+                # {小组}/{用户名}/{用户名}.md
+                user_file = os.path.join(entry_path, entry + FILE_SUFFIX)
+                if os.path.isfile(user_file):
+                    identifier = f"{group_dir}/{entry}/{entry}"
+                    result.append(identifier)
+
     return result
 
 def extract_name_from_row(row):

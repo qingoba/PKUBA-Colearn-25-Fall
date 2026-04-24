@@ -1,0 +1,25 @@
+{
+  "name": "tronclaw",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TronClaw — AI Agent TRON Chain Capability Gateway",
+  "scripts": {
+    "dev": "pnpm --parallel --filter './packages/*' dev",
+    "build": "pnpm --filter './packages/*' build",
+    "render-build": "pnpm --filter shared build && pnpm --filter gateway build",
+    "test": "pnpm --filter './packages/*' test",
+    "test:coverage": "pnpm --filter './packages/*' test:coverage",
+    "lint": "pnpm --filter './packages/*' lint",
+    "clean": "pnpm --filter './packages/*' clean && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["better-sqlite3", "esbuild"]
+  }
+}

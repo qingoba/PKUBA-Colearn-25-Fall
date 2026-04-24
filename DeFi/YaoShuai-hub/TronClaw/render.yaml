@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: tronclaw-gateway
+    runtime: node
+    region: singapore
+    plan: free
+    rootDir: .
+    buildCommand: npm install -g pnpm && pnpm install && pnpm run render-build
+    startCommand: node packages/gateway/dist/index.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: TRON_NETWORK
+        value: nile
+      - key: MOCK_TRON
+        value: false
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: DATABASE_PATH
+        value: ./data.db
+      - key: FRONTEND_URL
+        value: https://tronclaw.vercel.app
+      # Secrets — set these in Render dashboard, not here:
+      # TRON_PRIVATE_KEY
+      # TRONGRID_API_KEY
+      # BANK_OF_AI_API_KEY
+      # GEMINI_API_KEY

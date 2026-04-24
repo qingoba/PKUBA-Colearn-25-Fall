@@ -1,5 +1,22 @@
 # PKUBA 共学小组 2025 Fall
 
+## 大作业第二弹：Intro to Atomic Arbitrage
+
+🎉PKUBA 共学小组大作业第二弹来了！
+
+本次大作业面向 **DeFi 合约组**同学，目标是复刻一笔真实的以太坊链上 atomic arbitrage 交易，从看懂 tx 到写合约、本地 re-simulate 全流程走一遍。
+
+**你将学到：**
+- 如何读懂一笔真实的 MEV 套利交易（event log、tx graph、call trace）
+- Uniswap V3 的 swap 机制与 flash swap 原理
+- Peapods 等 earning protocol 的 token wrapping 机制
+- Foundry fork 测试与 re-simulation 技术
+- 编写能与多个 DeFi 协议交互的套利合约
+
+详情点击: [Intro to Atomic Arb](./01-intro-to-atomic-arb.md)
+
+---
+
 ## Hackthon on Tron is now Live ! 🔥🔥🔥
 
 🎉PKUBA 共学小组大作业第一弹来了！
@@ -141,13 +158,37 @@
 | [DeFi/1248368338-droid](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/DeFi/1248368338-droid.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 | [Onchain-data/0xinsternet](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/0xinsternet.md) | ⭕️ | ⭕️ | ✅ | ✅ | ⭕️ | ❌ | | |
 | [Onchain-data/LuBryant/LuBryant](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/LuBryant/LuBryant.md) | ⭕️ | ⭕️ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpcore-1.0.9.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/starlette-0.38.6.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/starlette-0.38.6.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/uvicorn-0.30.6.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/uvicorn-0.30.6.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/idna-3.11.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/Afterglow36/TronWhaleAgent/Tron-Whale-Insight-Agent/.venv/lib/python3.12/site-packages/httpx-0.27.2.dist-info/licenses/LICENSE.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
-| [Onchain-data/RenJW418/TronSage/README.en](https://github.com/qingoba/PKUBA-Colearn-25-Fall/blob/main/Onchain-data/RenJW418/TronSage/README.en.md) | ⭕️ | ⭕️ | ⭕️ | ⭕️ | ❌ | | | |
 <!-- END_COMMIT_TABLE -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -180,10 +221,10 @@
 <!-- STATISTICALDATA_START -->
 ## 统计数据
 
-- 总参与人数: 33
+- 总参与人数: 27
 - 完成人数: 12
 - 完成用户: Onchain-data/Afterglow36, Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto, Onchain-data/rayHartley, DeFi/pandmonkey, DeFi/Yawnaa, Onchain-data/LuBryant/LuBryant
 - 全勤用户: Onchain-data/donnyqiu, DeFi/Lucas-gs9, DeFi/YaoShuai-hub, Onchain-data/odsbaron, Onchain-data/RenJW418, DeFi/billyoftea, Onchain-data/aliced-crypto
-- 淘汰人数: 21
-- 淘汰率: 63.64%
+- 淘汰人数: 15
+- 淘汰率: 55.56%
 <!-- STATISTICALDATA_END -->

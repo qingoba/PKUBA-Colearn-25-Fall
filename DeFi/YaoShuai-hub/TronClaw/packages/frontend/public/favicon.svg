@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#16213E"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5722"/>
+      <stop offset="100%" stop-color="#D32F2F"/>
+    </linearGradient>
+    <linearGradient id="c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF7043"/>
+      <stop offset="100%" stop-color="#E53935"/>
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
+  <!-- Body -->
+  <ellipse cx="15" cy="19" rx="7.5" ry="6.5" fill="url(#b)"/>
+  <!-- Belly -->
+  <ellipse cx="15" cy="20.5" rx="4" ry="3" fill="#FFCCBC" opacity="0.5"/>
+  <!-- Eyes -->
+  <circle cx="12.5" cy="12" r="3" fill="#FFFDE7"/>
+  <circle cx="17.5" cy="12" r="3" fill="#FFFDE7"/>
+  <circle cx="13" cy="11.8" r="1.5" fill="#1A237E"/>
+  <circle cx="18" cy="11.8" r="1.5" fill="#1A237E"/>
+  <circle cx="13.5" cy="11" r="0.5" fill="#FFF"/>
+  <circle cx="18.5" cy="11" r="0.5" fill="#FFF"/>
+  <!-- Eye stalks -->
+  <rect x="11.5" y="13.5" width="2" height="3" rx="1" fill="#E8382B"/>
+  <rect x="16.5" y="13.5" width="2" height="3" rx="1" fill="#E8382B"/>
+  <!-- Big claw (right) -->
+  <path d="M23 16 Q27 12 28 9 Q29 7 27 8 Q25 10 24 14Z" fill="url(#c)"/>
+  <!-- Small claw (left) -->
+  <path d="M7 16 Q4 13 3 11 Q2 9 4 10 Q6 12 7 15Z" fill="url(#c)" opacity="0.8"/>
+  <!-- Blockchain dot -->
+  <circle cx="15" cy="19" r="1" fill="#4ADE80" opacity="0.9"/>
+</svg>
