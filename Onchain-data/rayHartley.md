@@ -56,4 +56,10 @@ timezone: UTC+8
 
 <img width="537" height="42" alt="image" src="https://github.com/user-attachments/assets/3806342c-c8bc-4d41-9f15-25c3ebc6a108" />
 
+### 2026.01.06
+加强学习了一下go语言还有查询命令。
+
+### 2026.04.27
+完成了project2
+
 <!-- Content_END -->
