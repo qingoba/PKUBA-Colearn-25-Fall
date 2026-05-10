@@ -1,0 +1,28 @@
+{
+  "name": "liquidation-monitor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "digest": "tsx src/index.ts digest",
+    "send-test": "tsx src/index.ts send-test",
+    "scan": "tsx src/index.ts scan",
+    "poll": "tsx src/index.ts poll",
+    "bot": "tsx src/index.ts bot",
+    "debug-tx": "tsx src/index.ts debug-tx",
+    "find-market": "tsx src/index.ts find-market"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ethers": "^6.13.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+  
+}
