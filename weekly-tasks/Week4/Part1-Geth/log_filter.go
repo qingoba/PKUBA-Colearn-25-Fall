@@ -27,7 +27,7 @@ const (
 	// ⚠️ 请替换为你的 Infura RPC URL
 	// 格式: https://mainnet.infura.io/v3/YOUR_API_KEY
 	// 获取方式: 访问 https://infura.io/ 注册并获取 API Key
-	InfuraURL = "https://mainnet.infura.io/v3/YOUR_API_KEY"
+	InfuraURL = "https://mainnet.infura.io/v3/617b6207bb1c413391b6a0992a54b1d8"
 	
 	// ⚠️ 请根据你的代理软件修改端口号
 	// 常见代理端口：
@@ -35,7 +35,7 @@ const (
 	//   - V2Ray: 10808 (HTTP), 10809 (SOCKS5)
 	//   - Shadowsocks: 1080 (SOCKS5)
 	// 如果不需要代理，可以设为空字符串 ""
-	PROXY_PORT = "YOUR_PROXY_PORT" 
+	PROXY_PORT = "7890" 
 	
 	// 设置较大的超时时间，应对代理连接延迟
 	CONNECTION_TIMEOUT = 45 * time.Second 
